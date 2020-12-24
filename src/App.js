@@ -1,14 +1,28 @@
+import { Switch, Route } from 'react-router-dom'
+
 // Components imports
-import FunctionalComponent from "./components/FunctionalComponent";
+import Home from "./components/Home"
+// HOC which wraps around other components
+import Layout from "./components/common/Layout"
+import Login from "./components/Login"
+import SignUp from "./components/SignUp"
+import Profile from "./components/Profile"
 
 // CSS imports
 import "./css/App.css";
 
 const App = () => {
+
   return (
-    <div className="App">
-      <FunctionalComponent />
-    </div>
+    <Layout>
+      <Switch>
+        <Route exact path={["/", "/home"]} component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={SignUp} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/events" component={Event} />
+      </Switch>
+    </Layout>
   );
 };
 
