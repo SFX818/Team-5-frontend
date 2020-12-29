@@ -7,6 +7,7 @@ import Layout from "./components/common/Layout"
 import Login from "./components/Login"
 import SignUp from "./components/SignUp"
 import Profile from "./components/Profile"
+import Event from "./components/Event"
 
 // CSS imports
 import "./css/App.css";
@@ -20,7 +21,7 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={SignUp} />
         <Route exact path="/profile" component={Profile} />
-        <Route exact path="/events" component={Event} />
+        <Route exact path="/events/:id" component={Event} />
       </Switch>
     </Layout>
   );
