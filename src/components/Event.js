@@ -1,30 +1,22 @@
-import React, { useState, useRef } from 'react'
 import { save } from '../services/event.service'
 import ButtonSpinner from './common/ButtonSpinner'
-import Form from 'react-validation/build/form'
 
 // Helper
 import { resMessage } from '../utilities/functions.utilities'
 
 const Event = (params) => {
-    const form = useRef()
-
-    const [id, setId] = useState("")
-    const [name, setName] = useState("")
-    const [date, setDate] = useState("")
-    const [location, setLocation] = useState("")
 
     let eventData = params.location.state.data
     console.log(eventData)
 
-
     const handleSave = (e) => {
         e.preventDefault()
-        setId(id)
-        setName(name)
-        setDate(date)
-        setLocation(location)
-        save(id, name, date, location)
+        save(
+            eventData.eventId, 
+            eventData.name, 
+            eventData.date, 
+            eventData.location
+        )
             .then(
                 (error) => {
                     resMessage(error)
@@ -37,7 +29,7 @@ const Event = (params) => {
             <div id="all-info" className="card-panel teal lighten-2">
                 <div className="card-content white-text">
                     <h2 className="card-title">{eventData.name}</h2>
-                    <form method="POST" onSubmit={handleSave} ref={form}>
+                    <form method="POST" onSubmit={handleSave}>
                         <input hidden type="text" name="eventId" value={eventData.eventId} />
                         <input hidden type="text" name="name" value={eventData.name} />
                         <input hidden type="text" name="date" value={eventData.dates.start.localDate} />
