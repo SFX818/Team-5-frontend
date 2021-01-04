@@ -21,3 +21,26 @@ export const seeEvent = (eventId, name, date, location) => {
     })
 }
 
+
+
+export const deleteEvent = (eventId, name, date, location) => {
+    return axios.delete(API_URL + 'profile/myevents/addevent', {
+        eventId,
+        name,
+        date,
+        location
+    }, {header: authHeader()})
+}
+
+
+export const deleteComment = (name, content) => {
+    return axios.delete(API_URL + 'profile/myevents/addevent', {
+        name, 
+        content
+    }, {header: authHeader()})
+}
+
+
+
+
+
