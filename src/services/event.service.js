@@ -5,17 +5,17 @@ const API_URL = "http://localhost:8080/"
 
 // function to save a new Event
 export const save = (eventId, name, date, location) => {
+    let authHeaderResponse= authHeader()
+    console.log(authHeaderResponse)
     axios.post(API_URL + 'profile/myevents/addevent', {
         eventId,
         name,
         date,
         location
-    }, {header: authHeader()}).then(
+    }, {headers: authHeader()}).then(
         (res) => {
-            res({message: "event successfully saved to database"})
             return res.data
-            }
-        )
+            })
     }
 
 // pull events from local database

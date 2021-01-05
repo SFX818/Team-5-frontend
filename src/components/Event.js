@@ -12,10 +12,10 @@ const Event = (params) => {
     const handleSave = (e) => {
         e.preventDefault()
        const savedEvent= save(
-            eventData.eventId, 
+            eventData.id, 
             eventData.name, 
-            eventData.date, 
-            eventData.location
+            eventData.dates.start.localDate, 
+            eventData._embedded.venues[0].name
         )
         console.log(savedEvent)
     }
