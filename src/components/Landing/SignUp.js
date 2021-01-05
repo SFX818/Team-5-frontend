@@ -7,12 +7,12 @@ import CheckButton from 'react-validation/build/button'
 import { isEmail } from 'validator'
 
 //components
-import FormGroup from './common/FormGroup'
-import ButtonSpinner from './common/ButtonSpinner'
+import FormGroup from '../common/FormGroup'
+import ButtonSpinner from '../common/ButtonSpinner'
 
 //helper
-import AuthService from '../services/auth.service'
-import { resMessage } from '../utilities/functions.utilities'
+import AuthService from '../../services/auth.service'
+import { resMessage } from '../../utilities/functions.utilities'
 
 //Function given to react-validator
 const required = (value) => {

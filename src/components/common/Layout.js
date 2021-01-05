@@ -12,7 +12,7 @@ const Layout = (props) => {
     useEffect(() => {
         // grab getCurrentUser from the auth service
         const user = AuthService.getCurrentUser()
-        console.log(user)
+        //console.log(user,user.accessToken)
 
         if (user) {
             //setCurrentUser to the current user state

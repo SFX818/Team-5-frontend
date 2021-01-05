@@ -1,5 +1,6 @@
 import React from 'react'
-import AuthService from '../services/auth.service'
+import AuthService from '../../../services/auth.service'
+import CalendarStack from '../Profile(BurgerStack)/CalendarStack'
 
 const Profile = () => {
     const currentUser = AuthService.getCurrentUser()
@@ -24,6 +25,7 @@ const Profile = () => {
             {currentUser.roles && 
                 currentUser.roles.map((role, index) => <li key={index}>{role}</li>)
                 }
+            < CalendarStack />
         </div>
     )
 }

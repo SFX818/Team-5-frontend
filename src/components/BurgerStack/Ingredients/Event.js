@@ -1,8 +1,8 @@
-import { save } from '../services/event.service'
-import ButtonSpinner from './common/ButtonSpinner'
+import { save } from '../../../services/event.service'
+import ButtonSpinner from '../../common/ButtonSpinner'
 
 // Helper
-import { resMessage } from '../utilities/functions.utilities'
+import { resMessage } from '../../../utilities/functions.utilities'
 
 const Event = (params) => {
 

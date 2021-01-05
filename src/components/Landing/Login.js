@@ -3,14 +3,14 @@ import React, { useState, useRef } from 'react'
 import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
 import CheckButton from 'react-validation/build/button'
-import AuthService from '../services/auth.service'
+import AuthService from '../../services/auth.service'
 
 // Component
-import FormGroup from "./common/FormGroup";
-import ButtonSpinner from './common/ButtonSpinner'
+import FormGroup from "../common/FormGroup";
+import ButtonSpinner from '../common/ButtonSpinner'
 
 // Helper
-import { resMessage } from '../utilities/functions.utilities'
+import { resMessage } from '../../utilities/functions.utilities'
 
 //function give to react-validator
 const required = (value) => {

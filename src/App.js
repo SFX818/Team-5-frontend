@@ -1,13 +1,12 @@
 import { Switch, Route } from 'react-router-dom'
 
 // Components imports
-import Home from "./components/Home"
 // HOC which wraps around other components
 import Layout from "./components/common/Layout"
-import Login from "./components/Login"
-import SignUp from "./components/SignUp"
-import Profile from "./components/Profile"
-import Event from "./components/Event"
+import Login from "./components/Landing/Login"
+import SignUp from "./components/Landing/SignUp"
+import Profile from "./components/BurgerStack/Profile(BurgerStack)/Profile"
+import Home from "./components/BurgerStack/Ingredients/Home"
 
 // CSS imports
 import "./css/App.css";
@@ -21,6 +20,7 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={SignUp} />
         <Route exact path="/profile" component={Profile} />
+
         <Route exact path="/events/:id" component={Event} />
         <Route exact path="/profile/myevents/addevent" component={Event} />
         <Route exact path="/profile/myevents/:id" component={Event} />
