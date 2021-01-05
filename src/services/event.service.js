@@ -10,22 +10,26 @@ export const save = (eventId, name, date, location) => {
     // // const token = JSON.parse(localStorage.getItem("user"))
     // let accessToken = JSON.parse(token).accessToken
     // console.log(JSON.parse(accessToken))
+    // let response = authHeader()
+    // console.log(response)
     return axios.post(API_URL + 'profile/myevents/addevent', {
         eventId,
         name,
         date,
         location
-    }, {header: authHeader()})
-    .then((res)=> {
-        res({message: "event successfully saved to database"})
-        return res.data
-    })
+    },
+        { headers: authHeader() }).then(
+            ((res) => {
+                // res({ message: "event successfully saved to database" })
+                return res.data
+            })
+        )
 }
 
 // pull events from local database
 export const seeEvent = (eventId, name, date, location) => {
     return axios.get(API_URL + 'profile/myevents/', {
-       
+
     })
 }
 
@@ -35,15 +39,15 @@ export const deleteEvent = (eventId, name, date, location) => {
         name,
         date,
         location
-    }, {header: authHeader()})
+    }, { header: authHeader() })
 }
 
 
 export const deleteComment = (name, content) => {
     return axios.delete(API_URL + 'profile/myevents/addevent', {
-        name, 
+        name,
         content
-    }, {header: authHeader()})
+    }, { header: authHeader() })
 }
 
 

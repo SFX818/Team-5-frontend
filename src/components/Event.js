@@ -13,10 +13,6 @@ const Event = (params) => {
         e.preventDefault()
         // let token = localStorage.getItem("user.accessToken")
         const savedEvent = save(
-            // eventData.eventId,
-            // eventData.name,
-            // eventData.date,
-            // eventData.location
             eventData.id,
             eventData.name,
             eventData.dates.start.localDate,
