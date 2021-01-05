@@ -11,26 +11,13 @@ const Event = (params) => {
 
     const handleSave = (e) => {
         e.preventDefault()
-        // let token = localStorage.getItem("user.accessToken")
-        const savedEvent = save(
-            eventData.id,
-            eventData.name,
-            eventData.dates.start.localDate,
+       const savedEvent= save(
+            eventData.id, 
+            eventData.name, 
+            eventData.dates.start.localDate, 
             eventData._embedded.venues[0].name
         )
         console.log(savedEvent)
-        //     .then(
-        //         console.log(
-        //             eventData.id,
-        //             eventData.name,
-        //             eventData.dates.start.localDate,
-        //             eventData._embedded.venues[0].name
-        //         ),
-        //         (error) => {
-        //             resMessage(error)
-        //         },
-        //         console.log("TRYING TO HANDLE SAVE")
-        //     )
     }
 
     return (
