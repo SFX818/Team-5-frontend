@@ -5,25 +5,21 @@ import authHeader from '../../../utilities/authHeader.utilities'
 //import authHeader from '../utilities/authHeader.utilities'
 import { resMessage } from '../../../utilities/functions.utilities'
 
-const CalendarStack = () => {
-    // let eventData = params.location.state.data
-    // console.log(eventData)
+import EventService from '../../../services/event.service'
 
+const CalendarStack = (user) => {
+   
 
     const [calendar, setCalendar]=useState([])
-
     const [message, setMessage] = useState("")
 
+    EventService.userEvent()
+    .then(response=>{
+        console.log(response.data)
+    })
+
     useEffect(()=>{
-        axios.get('http://localhost:8080/profile/myevents/', {header: authHeader()})
-        .then((response)=>{
-            console.log(`RESPONSE DATA: ${response.data}`)
-            setCalendar(response.data)
-        },
-        (error) => {
-            setMessage(resMessage(error))
-        }
-    )
+        setCalendar([])
     },[])
 
   return(
@@ -37,15 +33,17 @@ const CalendarStack = () => {
             </div>
         )}
         <div>
-        {calendar.map((calendarEvent)=>
+        {calendar}
+        {/* {calendar.map((calendarEvent)=>
             < CalendarEvent 
                 key={calendarEvent._id} 
                 name={calendarEvent.name} 
                 date={calendarEvent.date} 
                 location={calendarEvent.location}
-                comments={calendarEvent.comments}
+                comments = 'hi'
+                // comments={calendarEvent.comments}
             />
-        )}
+        )} */}
         </div>
     </>
   ) 

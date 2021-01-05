@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import AuthService from '../../../services/auth.service'
 import CalendarStack from '../Profile(BurgerStack)/CalendarStack'
 
 const Profile = () => {
-    const currentUser = AuthService.getCurrentUser()
+    
+    // useEffect(() => {
+        const currentUser = AuthService.getCurrentUser()
+
+        // if (user) {
+        //     setCurrentUser(user);
+        //    }
+        // }, [])
 
     return (
         <div className="container">
@@ -25,7 +32,7 @@ const Profile = () => {
             {currentUser.roles && 
                 currentUser.roles.map((role, index) => <li key={index}>{role}</li>)
                 }
-            < CalendarStack />
+            < CalendarStack user= {currentUser}/>
         </div>
     )
 }

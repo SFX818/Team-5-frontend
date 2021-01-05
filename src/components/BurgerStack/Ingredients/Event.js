@@ -1,4 +1,4 @@
-import { save } from '../../../services/event.service'
+import save  from '../../../services/event.service'
 import ButtonSpinner from '../../common/ButtonSpinner'
 
 // Helper
