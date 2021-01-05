@@ -22,9 +22,25 @@ const App = () => {
         <Route exact path="/register" component={SignUp} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/events/:id" component={Event} />
+        <Route exact path="/profile/myevents/addevent" component={Event} />
+        <Route exact path="/profile/myevents/:id" component={Event} />
+        <Route exact path="/events/comment" component={Event} />
+        <Route exact path="/profile/newcomment" component={Event} />
+        <Route exact path="/events/comment/:id" component={Event} />
+        <Route exact path="/events/updatedcomment/:id" component={Event} />
       </Switch>
     </Layout>
   );
 };
 
 export default App;
+
+
+
+
+
+    
+
+
+
+
