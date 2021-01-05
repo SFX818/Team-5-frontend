@@ -10,9 +10,13 @@ export const save = (eventId, name, date, location) => {
         name,
         date,
         location
-    }, {header: authHeader()}).
-}
-
+    }, {header: authHeader()}).then(
+        (res) => {
+            res({message: "event successfully saved to database"})
+            return res.data
+            }
+        )
+    }
 
 // pull events from local database
 export const seeEvent = (eventId, name, date, location) => {

@@ -11,17 +11,13 @@ const Event = (params) => {
 
     const handleSave = (e) => {
         e.preventDefault()
-        save(
+       const savedEvent= save(
             eventData.eventId, 
             eventData.name, 
             eventData.date, 
             eventData.location
         )
-            .then(
-                (error) => {
-                    resMessage(error)
-                }
-            )
+        console.log(savedEvent)
     }
 
     return (
