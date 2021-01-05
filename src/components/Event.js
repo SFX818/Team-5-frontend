@@ -1,8 +1,8 @@
 import { save } from '../services/event.service'
 import ButtonSpinner from './common/ButtonSpinner'
 
-// Helper
-import { resMessage } from '../utilities/functions.utilities'
+// // Helper
+// import { resMessage } from '../utilities/functions.utilities'
 
 const Event = (params) => {
 
@@ -12,24 +12,29 @@ const Event = (params) => {
     const handleSave = (e) => {
         e.preventDefault()
         // let token = localStorage.getItem("user.accessToken")
-        save(
+        const savedEvent = save(
+            // eventData.eventId,
+            // eventData.name,
+            // eventData.date,
+            // eventData.location
             eventData.id,
             eventData.name,
             eventData.dates.start.localDate,
             eventData._embedded.venues[0].name
         )
-            .then(
-                console.log(
-                    eventData.id,
-                    eventData.name,
-                    eventData.dates.start.localDate,
-                    eventData._embedded.venues[0].name
-                ),
-                (error) => {
-                    resMessage(error)
-                },
-                console.log("TRYING TO HANDLE SAVE")
-            )
+        console.log(savedEvent)
+        //     .then(
+        //         console.log(
+        //             eventData.id,
+        //             eventData.name,
+        //             eventData.dates.start.localDate,
+        //             eventData._embedded.venues[0].name
+        //         ),
+        //         (error) => {
+        //             resMessage(error)
+        //         },
+        //         console.log("TRYING TO HANDLE SAVE")
+        //     )
     }
 
     return (

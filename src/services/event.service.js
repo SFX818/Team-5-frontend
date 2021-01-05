@@ -6,21 +6,25 @@ const API_URL = "http://localhost:8080/"
 export const save = (eventId, name, date, location) => {
     console.log(eventId, name, date, location)
     console.log('TRYING TO SAVE AND SEND TO BACKEND')
-    const token = localStorage.getItem("user")
-    // const token = JSON.parse(localStorage.getItem("user"))
-    let accessToken = JSON.parse(token).accessToken
-    console.log(JSON.parse(accessToken))
+    // const token = localStorage.getItem("user")
+    // // const token = JSON.parse(localStorage.getItem("user"))
+    // let accessToken = JSON.parse(token).accessToken
+    // console.log(JSON.parse(accessToken))
     return axios.post(API_URL + 'profile/myevents/addevent', {
         eventId,
         name,
         date,
         location
     }, {header: authHeader()})
+    .then((res)=> {
+        res({message: "event successfully saved to database"})
+        return res.data
+    })
 }
 
 // pull events from local database
 export const seeEvent = (eventId, name, date, location) => {
-    return axios.get(API_URL + 'profile/myevents/addevent', {
+    return axios.get(API_URL + 'profile/myevents/', {
        
     })
 }
