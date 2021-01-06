@@ -9,9 +9,11 @@ const MyEvent = (params) => {
 
     const [message, setMessage] = useState('')
     const [event, setEvent] = useState('')
+
+    const eventId=(params.match.params.id)
         
         useEffect( ()=>{
-            axios.get(`http://localhost:8080/events/comments/5ff394c7d87802b5b25b5021`, { headers: authHeader() })
+            axios.get(`http://localhost:8080/events/comments/${eventId}`, { headers: authHeader() })
             .then(res=>{
                 setEvent(res.data)
             },
@@ -20,7 +22,7 @@ const MyEvent = (params) => {
             }
         )},[])
         // see the event-state where the api set data to
-        console.log(event)
+        //console.log(event)
        
 
     return (
