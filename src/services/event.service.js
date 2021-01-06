@@ -20,10 +20,11 @@ export const save = (eventId, name, date, location) => {
         )
 }
 
+
 // pull events from local database
 export const seeEvent = (eventId, name, date, location) => {
     return axios.get(API_URL + 'profile/myevents/')
-    
+
 }
 
 export const deleteEvent = (eventId, name, date, location) => {
