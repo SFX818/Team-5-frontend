@@ -5,9 +5,25 @@ import { Link } from 'react-router-dom'
 const Home = () => {
 
   const [eventData, setEventData] = useState([])
+  const [searchWord, setSearchWord] = useState("country")
+
+  // Store the searched keyword in our searchWord state
+  const onChangeSearch = (e) => {
+    const search = e.target.value
+    setSearchWord(search)
+  }
+
+  const HandleSearch = (e) => {
+    e.preventDefault()
+    axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=0wQvZLMQGzPOHkz1uaAlvIfQ8NQt8ZDe&size=20&keyword=${searchWord}`)
+      .then((res) => {
+        // console.log(res.data._embedded.events)
+        setEventData(res.data._embedded.events)
+      })
+  }
 
   useEffect(() => {
-    axios.get("https://app.ticketmaster.com/discovery/v2/events.json?apikey=0wQvZLMQGzPOHkz1uaAlvIfQ8NQt8ZDe&size=20&postalCode=10001")
+    axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=0wQvZLMQGzPOHkz1uaAlvIfQ8NQt8ZDe&size=20&keyword=${searchWord}`)
       .then((res) => {
         setEventData(res.data._embedded.events)
       })
@@ -16,7 +32,7 @@ const Home = () => {
   const display = () => (
     eventData.map((data, i) => {
       return (
-        <div className="col-6 col-md-4">
+        <div key={i} className="col-6 col-md-4">
           <div className="card">
             <img src={data.images[6].url} className="card-img-top" alt="Eagles Group"></img>
             <div className="card-body">
@@ -41,6 +57,11 @@ const Home = () => {
     <div className="container">
       <div className="row">
         <h1>Upcoming Events</h1>
+        <form onSubmit={HandleSearch} className="search-form">
+          <label htmlFor="search" className="screen-reader-text"></label>
+          <input id="search" type="search" className="search-input" onChange={onChangeSearch} placeholder="Search New Event"></input>
+          <button className="search-button">Search</button>
+        </form>
         {display()}
       </div>
     </div>
