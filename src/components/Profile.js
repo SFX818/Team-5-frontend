@@ -1,5 +1,7 @@
 import React from 'react'
+import { Redirect } from "react-router";
 import AuthService from '../services/auth.service'
+import { Link } from 'react-router-dom'
 
 const Profile = () => {
     const currentUser = AuthService.getCurrentUser()
@@ -20,12 +22,28 @@ const Profile = () => {
             <p>
                 <strong>Email:</strong> {currentUser.email}
             </p>
+           
+            
             {/* if current user has roles then map through those roles */}
             {currentUser.roles && 
                 currentUser.roles.map((role, index) => <li key={index}>{role}</li>)
                 }
+             <Link 
+                to={{
+                  pathname: `/`,
+                  
+                }} 
+              >
+              Home Page
+              </Link>
+              
+
         </div>
+        
     )
 }
+
+
+
 
 export default Profile

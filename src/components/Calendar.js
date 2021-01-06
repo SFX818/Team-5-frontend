@@ -47,15 +47,30 @@ console.log(savedEvents)
     })
   )
 
+
+  
+  const deleteSavedEvent = (id) => {
+   
+    setSavedEvents(savedEvents.filter((savedEvent) => savedEvent.id !== id))
+    }
+
+
   return (
     <div class="container">
       <div class="row">
-        <h1>Your Events</h1>
+        <h1>My Calendar with Events</h1>
+        <button onClick={deleteSavedEvent}>DELETE EVENT</button>
         {display()}
       </div>
     </div>
   )
-}
+
+  }
+
+
+
+
+
 
 
 
