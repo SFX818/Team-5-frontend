@@ -1,5 +1,6 @@
 import axios from 'axios'
 import authHeader from '../utilities/authHeader.utilities'
+
 const API_URL = "http://localhost:8080/"
 
 // function to save a new Event
@@ -11,13 +12,7 @@ export const save = (eventId, name, date, location) => {
         name,
         date,
         location
-    },
-        { headers: authHeader() }).then(
-            ((res) => {
-                // res({ message: "event successfully saved to database" })
-                return res.data
-            })
-        )
+    }, {header: authHeader()})
 }
 
 
@@ -27,19 +22,21 @@ export const seeEvent = (eventId, name, date, location) => {
 
 }
 
+
+
 export const deleteEvent = (eventId, name, date, location) => {
     return axios.delete(API_URL + 'profile/myevents/addevent', {
         eventId,
         name,
         date,
         location
-    }, { header: authHeader() })
+    }, {header: authHeader()})
 }
 
 
 export const deleteComment = (name, content) => {
     return axios.delete(API_URL + 'profile/myevents/addevent', {
-        name,
+        name, 
         content
-    }, { header: authHeader() })
+    }, {header: authHeader()})
 }

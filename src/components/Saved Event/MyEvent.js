@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getAllComments } from '../../services/event.service'
 import authHeader from '../../utilities/authHeader.utilities'
 import axios from 'axios'
+import ReactDOM from 'react-dom';
 
 import { resMessage } from '../../utilities/functions.utilities'
 
@@ -30,10 +31,23 @@ const MyEvent = (params) => {
         <p>eventId: {event.eventId}</p>
         <p>location: {event.location}</p>
         __v: {event._v}/_id: {event._id}
+        <form>
+  <label>
+    Comments:
+    <input type="text" name="name" />
+  </label>
+  <input type="submit" value="Submit" />
+</form>
+
+        <button onClick={MyEvent}>DELETE COMMENT</button>
         
       </div>
     );
 };
+
+
+
+
   
   export default MyEvent;
   
