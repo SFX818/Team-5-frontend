@@ -16,13 +16,17 @@ export const save = (eventId, name, date, location) => {
         (res) => {
             return res.data
             })
+            // console.log(res.data)
     }
 
 // pull events from local database
-export const seeEvent = (eventId, name, date, location) => {
-    return axios.get(API_URL + 'profile/myevents/addevent', {
+export const seeEvent = () => {
+    return axios.get(API_URL + 'profile/myevents', {
        
-    })
+    }, {headers: authHeader()}).then(
+        (res) => {
+            return res.data
+            })
 }
 
 
