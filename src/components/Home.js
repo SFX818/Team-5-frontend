@@ -7,7 +7,7 @@ const Home = () => {
   const [eventData, setEventData] = useState([])
 
   useEffect(() => {
-    axios.get("https://app.ticketmaster.com/discovery/v2/events.json?apikey=0wQvZLMQGzPOHkz1uaAlvIfQ8NQt8ZDe&size=20&countryCode=US")
+    axios.get("https://app.ticketmaster.com/discovery/v2/events.json?apikey=0wQvZLMQGzPOHkz1uaAlvIfQ8NQt8ZDe&size=20&postalCode=10001")
       .then((res) => {
         setEventData(res.data._embedded.events)
       })
@@ -15,14 +15,13 @@ const Home = () => {
 
   const display = () => (
     eventData.map((data, i) => {
-      console.log(data)
       return (
-        <div class="col-6 col-md-4">
-          <div class="card">
-            <img src={data.images[6].url} class="card-img-top" alt="Eagles Group"></img>
-            <div class="card-body">
-              <h5 class="card-title">{data.name}</h5>
-              <p class="card-text">{data._embedded.venues[0].name}<br></br><span>{data.dates.start.localDate}</span></p>
+        <div className="col-6 col-md-4">
+          <div className="card">
+            <img src={data.images[6].url} className="card-img-top" alt="Eagles Group"></img>
+            <div className="card-body">
+              <h5 className="card-title">{data.name}</h5>
+              <p className="card-text">{data._embedded.venues[0].name}<br></br><span>{data.dates.start.localDate}</span></p>
               <Link to={{
                 pathname: `/events/${data.id}`,
                 state: { data }
@@ -39,8 +38,8 @@ const Home = () => {
   )
 
   return (
-    <div class="container">
-      <div class="row">
+    <div className="container">
+      <div className="row">
         <h1>Upcoming Events</h1>
         {display()}
       </div>
