@@ -12,7 +12,6 @@ const Event = (props) => {
 
     const handleSave = (e) => {
         e.preventDefault()
-        // let token = localStorage.getItem("user.accessToken")
         save(
             content.id,
             content.name,
