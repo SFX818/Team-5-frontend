@@ -54,7 +54,7 @@ const Layout = (props) => {
                         <li className='nav-item'>
                             <Link to={'/home'} className='nav-link'>
                                 Home
-                        </Link>
+                            </Link>
                         </li>
                         {/* && says if showAdminboard is true, then show this link item
                         {showAdminBoard && (
@@ -81,6 +81,16 @@ const Layout = (props) => {
 
                     {currentUser ?
                         <div className='navbar-nav ml-auto'>
+                            <li className='nav-item'>
+                            <Link 
+                                to={{
+                                    pathname: '/event/comments'
+                                }}
+                            >
+                                My Event Test
+                            </Link>
+                            </li>
+                            
                             <li className='nav-item'>
                                 <Link to={'/profile'}>
                                     {currentUser.username}

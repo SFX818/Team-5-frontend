@@ -46,8 +46,3 @@ export const deleteComment = (name, content) => {
         content
     }, { header: authHeader() })
 }
-
-
-
-
-
