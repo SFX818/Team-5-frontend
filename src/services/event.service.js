@@ -4,11 +4,9 @@ const API_URL = "http://localhost:8080/"
 
 // function to save a new Event
 export const save = (eventId, name, date, location) => {
-
-    let authHeaderResponse= authHeader()
-    console.log(authHeaderResponse)
-    axios.post(API_URL + 'profile/myevents/addevent', {
-
+    // console.log(eventId, name, date, location)
+    // console.log('TRYING TO SAVE AND SEND TO BACKEND')
+    return axios.post(API_URL + 'profile/myevents/addevent', {
         eventId,
         name,
         date,
@@ -25,9 +23,8 @@ export const save = (eventId, name, date, location) => {
 
 // pull events from local database
 export const seeEvent = (eventId, name, date, location) => {
-    return axios.get(API_URL + 'profile/myevents/', {
+    return axios.get(API_URL + 'profile/myevents/')
 
-    })
 }
 
 export const deleteEvent = (eventId, name, date, location) => {
@@ -46,8 +43,3 @@ export const deleteComment = (name, content) => {
         content
     }, { header: authHeader() })
 }
-
-
-
-
-
