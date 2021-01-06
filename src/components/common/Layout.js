@@ -33,12 +33,22 @@ const Layout = (props) => {
                         <li className='nav-item'>
                             <Link to={'/home'} className='nav-link'>
                                 Home
-                        </Link>
+                            </Link>
                         </li>
                     </div>
 
                     {currentUser ?
                         <div className='navbar-nav ml-auto'>
+                            <li className='nav-item'>
+                            <Link 
+                                to={{
+                                    pathname: '/event/comments'
+                                }}
+                            >
+                                My Event Test
+                            </Link>
+                            </li>
+                            
                             <li className='nav-item'>
                                 <Link to={'/profile'}>
                                     {currentUser.username}

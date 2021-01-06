@@ -38,14 +38,15 @@ const Home = () => {
             <div className="card-body">
               <h5 className="card-title">{data.name}</h5>
               <p className="card-text">{data._embedded.venues[0].name}<br></br><span>{data.dates.start.localDate}</span></p>
-              <Link to={{
-                pathname: `/events/${data.id}`,
-                state: { data }
-              }}
+              <Link 
+                to={{
+                  pathname: `/events/${data.id}`,
+                  state: { data }
+                }}
                 key={data.name}
               >
                 More Information
-                            </Link>
+              </Link>
             </div>
           </div>
         </div>
