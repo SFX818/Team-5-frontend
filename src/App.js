@@ -8,9 +8,7 @@ import Login from "./components/Login"
 import SignUp from "./components/SignUp"
 import Profile from "./components/Profile"
 import Event from "./components/Event"
-
 import Calendar from "./components/Calendar"
-
 import MyEvent from "./components/Saved Event/MyEvent"
 
 
@@ -28,7 +26,7 @@ const App = () => {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/events/:id" component={Event} />
         <Route exact path="/calendar" component={Calendar} />
-        {/* <Route exact path="/profile/myevents/:id" component={CalendarEvent} /> */
+        {/* <Route exact path="/profile/myevents/:id" component={CalendarEvent} /> */}
         <Route exact path="/event/comments" component={MyEvent} />
         <Route exact path="/profile/newcomment" component={Event} />
         <Route exact path="/events/comment/:id" component={Event} />
