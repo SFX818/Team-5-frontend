@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import authHeader from '../../utilities/authHeader.utilities'
 import axios from 'axios'
-import { resMessage } from '../../utilities/functions.utilities'
 import CommentsList from './CommentsList'
+import CommentForm from './CommentForm'
+import {saveComment} from '../../services/event.service'
 
 
 const MyEvent = (params) => {
 
-    const [message, setMessage] = useState('')
     const [event, setEvent] = useState('')
+    const [comments, setComments]= useState([])
 
     const eventId=(params.match.params.id)
         
@@ -16,14 +17,16 @@ const MyEvent = (params) => {
             axios.get(`http://localhost:8080/events/comments/${eventId}`, { headers: authHeader() })
             .then(res=>{
                 setEvent(res.data)
+                setComments(res.data.comments)
             },
             (error) => {
                 return(error)
             }
-        )},[])
-        // see the event-state where the api set data to
-        console.log(event.comments)
-       
+        )},[eventId])
+
+        const addToList = (newComment) =>{
+            setComments([ newComment, ...comments])
+        }
 
     return (
       <div className="container">
@@ -32,17 +35,25 @@ const MyEvent = (params) => {
         <p>eventId: {event.eventId}</p>
         <p>location: {event.location}</p>
         __v: {event._v}/_id: {event._id}
+        
+        <h6>Comments: </h6>
         < CommentsList 
-            comments= {event.comments}
+            comments= {comments}
         />
-        <form>
+        < CommentForm 
+            eventId= {eventId}
+            saveComment = {saveComment}
+            addToList = {addToList}
+        />
+        {/* <form>
   <label>
     Comments:
     <input type="text" name="name" />
-  </label>
-  <input type="submit" value="Submit" />
-</form>
+        </label>
+        <input type="submit" value="Submit" />
+      </form> */}
 
+<<<<<<< HEAD
         <button onClick={MyEvent}>DELETE COMMENT</button>
         
       </div>
@@ -54,10 +65,22 @@ const MyEvent = (params) => {
 
 
     
+=======
+      <button onClick={MyEvent}>DELETE COMMENT</button>
+      {/* <form method="DELETE" onSubmit={handleDelete}>
+        <input hidden type="text" name="eventId" value={event.eventId} />
+        <input hidden type="text" name="name" value={event.name} />
+        <input hidden type="text" name="date" value={event.date} />
+        <input hidden type="text" name="location" value={event.location} />
+        <ButtonSpinner text="Delete From Calendar" /> */}
+      {/* </form> */}
+    </div>
+  );
+>>>>>>> c0d2ea0021df52e836e518da07d07be1410497ce
 };
 
 
 
 
-  
-  export default MyEvent;
+
+export default MyEvent;
