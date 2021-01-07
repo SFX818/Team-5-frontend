@@ -15,16 +15,16 @@ const [savedEvents, setSavedEvents] = useState([])
 useEffect(() => {
     axios.get("http://localhost:8080/profile/myevents", {headers: authHeader()}) 
       .then((res) => {
-          console.log(res.data)
+        //   console.log(res.data)
         setSavedEvents(res.data)
       })
   }, [])
 
-console.log(savedEvents)
+// console.log(savedEvents)
 
   const display = () => (
    savedEvents.map((event, i) => {
-      console.log(event)
+    //   console.log(event)
       return (
         <div class="col-6 col-md-4">
           <div class="card">
@@ -56,8 +56,8 @@ console.log(savedEvents)
 
 
   return (
-    <div class="container">
-      <div class="row">
+    <div className="container">
+      <div className="row">
         <h1>My Calendar with Events</h1>
         <button onClick={deleteSavedEvent}>DELETE EVENT</button>
         {display()}
