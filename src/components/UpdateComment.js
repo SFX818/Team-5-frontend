@@ -11,15 +11,15 @@ const UpdateComment = () => {
 
     const [savedComment, setSavedComment] = useState("")
     
-    
+    // we get comments at eventId
     useEffect(() => {
-        axios.get("http://localhost:8080/events/comments/5ff7351db5eaad3581e799d2", {headers: authHeader()}) 
+        axios.get("http://localhost:8080/events/comments/5ff766ed8b6e254d562290c0", {headers: authHeader()}) 
           .then((res) => {
               console.log(res.data)
             setSavedComment(res.data)
           })
       }, [])
-
+ console.log(savedComment)
 
   const [updatedComment, setUpdatedComment] = useState("")
  
