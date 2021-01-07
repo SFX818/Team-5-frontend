@@ -3,15 +3,26 @@ import  axios  from 'axios';
 import { Link } from 'react-router-dom'
 import authHeader from '../utilities/authHeader.utilities'
 import {deleteEvent} from "../services/event.service"
+import { useHistory } from "react-router-dom";
+
 
 
 // const API_URL = "http://localhost:8080/"
 function Calendar() {
+  let history = useHistory();
   
   
 
 
 const [savedEvents, setSavedEvents] = useState([])
+const deleteSavedEvent = (e) => {
+
+  console.log(e)
+  let res= deleteEvent(e.target.parentNode.id)
+  history.push('/calendar')
+  window.location.reload()
+  console.log(res)
+}
 
 useEffect(() => {
     axios.get("http://localhost:8080/profile/myevents", {headers: authHeader()}) 
@@ -27,6 +38,9 @@ console.log(savedEvents)
    savedEvents.map((event, i) => {
      
       console.log(event)
+
+
+
       return (
         <div class="col-6 col-md-4">
           <div class="card">
@@ -56,16 +70,7 @@ console.log(savedEvents)
       )
     })
   )
-  const deleteSavedEvent = (e) => {
-    
-    console.log(e)
-    let res= deleteEvent(e.target.parentNode.id)
-    console.log(res)
-   
-    
-    
-    
-  }
+ 
 
 
   return (
