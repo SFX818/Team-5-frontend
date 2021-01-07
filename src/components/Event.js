@@ -19,8 +19,8 @@ const Event = (props) => {
             content.dates.start.localDate,
             content._embedded.venues[0].name
         )
-        console.log('TRYING TO SAVE')
         history.push('/calendar')
+        window.location.reload()
     }
 
     return (
