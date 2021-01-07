@@ -26,28 +26,19 @@ const Layout = (props) => {
         <div>
             <nav className='navbar navbar-expand navbar-light bg-light'>
                 <div className="container-fluid">
-                    <Link to='/' className='navbar-brand'>
-                        FOMO NO-MO!
-                </Link>
+                    <Link to='/calendar' className='navbar-brand'>
+                        My Calendar
+                    </Link>
                     <div className='navbar-nav mr-auto'>
                         <li className='nav-item'>
-                            <Link to={'/home'} className='nav-link'>
-                                Home
+                            <Link to={'/calendar'} className='nav-link'>
+                                My Calendar
                             </Link>
                         </li>
                     </div>
 
                     {currentUser ?
                         <div className='navbar-nav ml-auto'>
-                            <li className='nav-item'>
-                            <Link 
-                                to={{
-                                    pathname: '/event/comments/5ff394c7d87802b5b25b5021'
-                                }}
-                            >
-                                My Event Test
-                            </Link>
-                            </li>
                             
                             <li className='nav-item'>
                                 <Link to={'/profile'}>

@@ -11,6 +11,7 @@ import Event from "./components/Event"
 import Calendar from "./components/Calendar"
 import UpdateComment from "./components/UpdateComment"
 import MyEvent from "./components/Saved Event/MyEvent"
+//import UpdateComment from "./components/UpdateComment"
 
 
 // CSS imports
