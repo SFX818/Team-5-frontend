@@ -13,7 +13,7 @@ export const save = (eventId, name, date, location) => {
         eventId,
         name,
         date,
-        location
+        location, 
     }, { headers: authHeader() })
 }
 
@@ -40,5 +40,11 @@ export const deleteComment = (name, content) => {
     return axios.delete(API_URL + 'profile/myevents/addevent', {
         name,
         content
+    }, { header: authHeader() })
+}
+
+export const updateComment = (eventId, name, date, location) => {
+    return axios.put(API_URL + '/events/updatedcomment/:id', {
+        // content
     }, { header: authHeader() })
 }
