@@ -26,13 +26,13 @@ export const seeEvent = (eventId, name, date, location) => {
 
 
 
-export const deleteEvent = (eventId, name, date, location) => {
-    return axios.delete(API_URL + 'profile/myevents/addevent', {
-        eventId,
-        name,
-        date,
-        location
-    }, {headers: authHeader()})
+export const deleteEvent = (eventId) => {
+    console.log(eventId)
+    axios.delete(API_URL + 'profile/myevents/'+ eventId, {
+        eventId: eventId 
+    }, {headers: authHeader()}).then ((res)=>{
+        return res
+    })
 }
 
 
