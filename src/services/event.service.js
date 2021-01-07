@@ -14,7 +14,7 @@ export const save = (eventId, name, date, location) => {
         name,
         date,
         location
-    }, { headers: authHeader() })
+    }, {headers: authHeader()})
 }
 
 
@@ -32,7 +32,7 @@ export const deleteEvent = (eventId, name, date, location) => {
         name,
         date,
         location
-    }, { header: authHeader() })
+    }, {headers: authHeader()})
 }
 
 
@@ -40,5 +40,5 @@ export const deleteComment = (name, content) => {
     return axios.delete(API_URL + 'profile/myevents/addevent', {
         name,
         content
-    }, { header: authHeader() })
+    }, {headers: authHeader()})
 }

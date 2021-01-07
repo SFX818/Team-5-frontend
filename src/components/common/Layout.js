@@ -42,7 +42,7 @@ const Layout = (props) => {
                             <li className='nav-item'>
                             <Link 
                                 to={{
-                                    pathname: '/event/comments'
+                                    pathname: '/event/comments/5ff394c7d87802b5b25b5021'
                                 }}
                             >
                                 My Event Test

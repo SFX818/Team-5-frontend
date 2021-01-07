@@ -34,7 +34,14 @@ useEffect(() => {
                 key={event.name}
               >
                 More Information
-                            </Link>
+              </Link>
+              <Link 
+                to={{
+                    pathname: `/event/comments/${event._id}`
+                }}
+              >
+                TEST: Go to Saved Event
+              </Link>
             </div>
           </div>
         </div>
