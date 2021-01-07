@@ -16,23 +16,21 @@ const UpdateComment = () => {
         axios.get("http://localhost:8080/events/comments/5ff766ed8b6e254d562290c0", {headers: authHeader()}) 
           .then((res) => {
               console.log(res.data)
-            setSavedComment(res.data)
+            setSavedComment(res.data[0])
           })
       }, [])
  console.log(savedComment)
 
   const [updatedComment, setUpdatedComment] = useState("")
+
+  console.log(updatedComment)
  
   const handleSubmit = (e) => {
-    console.log(savedComment)
     e.preventDefault()
     updateComment(
-       {
-        //    name: name,
-        content: updatedComment,
-        // id: id
-    }
-       
+            savedComment.name,
+            updatedComment.content,
+            savedComment._id
     )
 }
 
@@ -56,7 +54,7 @@ const UpdateComment = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Content</label>
-          <textarea name="content" rows="5" value={savedComment.content} onChange={handleUpdate} className="form-control" />
+          <textarea name="content" rows="5" value={updatedComment=== "" ? savedComment.content : updatedComment.content } onChange={handleUpdate} className="form-control" />
         </div>
         <div className="btn-group">
           <button type="submit" className="btn btn-primary">Update</button>
