@@ -66,8 +66,4 @@ const MyEvent = (params) => {
     
 };
 
-
-
-
-
 export default MyEvent;
