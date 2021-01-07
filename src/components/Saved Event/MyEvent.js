@@ -49,18 +49,24 @@ const MyEvent = (params) => {
   <label>
     Comments:
     <input type="text" name="name" />
-  </label>
-  <input type="submit" value="Submit" />
-</form>
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
 
-        <button onClick={MyEvent}>DELETE COMMENT</button>
-        
-      </div>
-    );
+      <button onClick={MyEvent}>DELETE COMMENT</button>
+      <form method="DELETE" onSubmit={handleDelete}>
+        <input hidden type="text" name="eventId" value={event.eventId} />
+        <input hidden type="text" name="name" value={event.name} />
+        <input hidden type="text" name="date" value={event.date} />
+        <input hidden type="text" name="location" value={event.location} />
+        <ButtonSpinner text="Delete From Calendar" />
+      </form>
+    </div>
+  );
 };
 
 
 
 
-  
-  export default MyEvent;
+
+export default MyEvent;
