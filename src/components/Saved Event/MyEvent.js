@@ -3,7 +3,8 @@ import authHeader from '../../utilities/authHeader.utilities'
 import axios from 'axios'
 import CommentsList from './CommentsList'
 import CommentForm from './CommentForm'
-import {saveComment} from '../../services/event.service'
+import {saveComment } from '../../services/event.service'
+import ButtonSpinner from '../common/ButtonSpinner'
 
 
 const MyEvent = (params) => {
@@ -26,6 +27,10 @@ const MyEvent = (params) => {
 
         const addToList = (newComment) =>{
             setComments([ newComment, ...comments])
+        }
+
+        const handleDelete = () =>{
+
         }
 
     return (

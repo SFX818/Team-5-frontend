@@ -38,14 +38,7 @@ function Calendar() {
             <div id={event._id} class="card-body">
               <h5 class="card-title">{event.name}</h5>
               {/* <p class="card-text">{event._embedded.venues[0].name}<br></br><span>{event.dates.start.localDate}</span></p> */}
-              <Link to={{
-                pathname: `/events/${event.eventId}`,
-                state: { event }
-              }}
-                key={event.name}
-              >
-                More Information
-              </Link>
+              
               <Link
                 to={{
                   pathname: `/event/comments/${event._id}`
