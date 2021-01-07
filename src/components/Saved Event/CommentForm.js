@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
+import shortid from 'shortid'
 
-const CommentForm = ({addComment})=>{
+const CommentForm = ({eventId, saveComment,addToList})=>{
 
     const [newComment, setNewComment] = useState('')
     const [name, setName] = useState('')
@@ -15,11 +16,15 @@ const CommentForm = ({addComment})=>{
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        let newID= shortid.generate()
         setNewComment({
+            _id: newID,
             name: name,
             content: content
         })
-        addComment(newComment)
+        saveComment(eventId, newID, name, content)
+        .then(()=>
+        addToList(newComment))
     }
 
 

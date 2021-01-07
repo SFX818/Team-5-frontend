@@ -42,3 +42,11 @@ export const deleteComment = (name, content) => {
         content
     }, {headers: authHeader()})
 }
+
+export const saveComment = (eId, cId, name, content) => {
+    return axios.post(`${API_URL}events/newcomment/${eId}`, {
+        _id: cId,
+        name: name,
+        content: content
+    }, {headers: authHeader()})
+}

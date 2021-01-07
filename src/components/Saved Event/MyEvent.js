@@ -3,6 +3,7 @@ import authHeader from '../../utilities/authHeader.utilities'
 import axios from 'axios'
 import CommentsList from './CommentsList'
 import CommentForm from './CommentForm'
+import {saveComment} from '../../services/event.service'
 
 const MyEvent = (params) => {
 
@@ -22,14 +23,9 @@ const MyEvent = (params) => {
             }
         )},[])
 
-        const addComment = (newComment) =>{
-            console.log('new comment: '+newComment)
-            // e.preventDefault()
+        const addToList = (newComment) =>{
             setComments([ newComment, ...comments])
-            
-          }
-        
-       //console.log(comments)
+        }
 
     return (
       <div className="container">
@@ -39,11 +35,14 @@ const MyEvent = (params) => {
         <p>location: {event.location}</p>
         __v: {event._v}/_id: {event._id}
         
+        <h6>Comments: </h6>
         < CommentsList 
             comments= {comments}
         />
         < CommentForm 
-            addComment = {addComment}
+            eventId= {eventId}
+            saveComment = {saveComment}
+            addToList = {addToList}
         />
         <form>
   <label>
