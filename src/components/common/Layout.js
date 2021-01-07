@@ -39,10 +39,6 @@ const Layout = (props) => {
 
                     {currentUser ?
                         <div className='navbar-nav ml-auto'>
-<<<<<<< HEAD
-                            
-=======
->>>>>>> 7bac99a5cd729ac6948892164f334a21319ed6aa
                             
                             <li className='nav-item'>
                                 <Link to={'/profile'}>
