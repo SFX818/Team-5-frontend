@@ -44,10 +44,6 @@ export const saveComment = (eId, cId, name, content) => {
     }, {headers: authHeader()})
 }
 export const updateComment = ( name, content, commentId) => {
-<<<<<<< HEAD
-    console.log(name, content,commentId )
-=======
->>>>>>> c0d2ea0021df52e836e518da07d07be1410497ce
     return axios.put(API_URL + 'events/updatedcomment/' + commentId, { // id is the id of the comment
         name,
         content

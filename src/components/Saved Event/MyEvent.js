@@ -53,7 +53,6 @@ const MyEvent = (params) => {
         <input type="submit" value="Submit" />
       </form> */}
 
-<<<<<<< HEAD
         <button onClick={MyEvent}>DELETE COMMENT</button>
         
       </div>
@@ -65,18 +64,6 @@ const MyEvent = (params) => {
 
 
     
-=======
-      <button onClick={MyEvent}>DELETE COMMENT</button>
-      {/* <form method="DELETE" onSubmit={handleDelete}>
-        <input hidden type="text" name="eventId" value={event.eventId} />
-        <input hidden type="text" name="name" value={event.name} />
-        <input hidden type="text" name="date" value={event.date} />
-        <input hidden type="text" name="location" value={event.location} />
-        <ButtonSpinner text="Delete From Calendar" /> */}
-      {/* </form> */}
-    </div>
-  );
->>>>>>> c0d2ea0021df52e836e518da07d07be1410497ce
 };
 
 
