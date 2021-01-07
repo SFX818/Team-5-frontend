@@ -1,41 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import { getAllComments } from '../../services/event.service'
-import authHeader from '../../utilities/authHeader.utilities'
-import axios from 'axios'
+import React from 'react'
 
-import { resMessage } from '../../utilities/functions.utilities'
+const Comment = ({key, name, content}) => {
 
-const MyEvent = (params) => {
-
-    const [message, setMessage] = useState('')
-    const [event, setEvent] = useState('')
-
-    const eventId=(params.match.params.id)
-        
-        useEffect( ()=>{
-            axios.get(`http://localhost:8080/events/comments/${eventId}`, { headers: authHeader() })
-            .then(res=>{
-                setEvent(res.data)
-            },
-            (error) => {
-                return(error)
-            }
-        )},[])
-        // see the event-state where the api set data to
-        //console.log(event)
-       
-
+console.log(content)
     return (
       <div className="container">
-        <p>Event: {event.name} </p>
-        <p>date: {event.date} </p>
-        <p>eventId: {event.eventId}</p>
-        <p>location: {event.location}</p>
-        __v: {event._v}/_id: {event._id}
-        
+          HELLO
+        <h6>{name}</h6>
+            <p>{content}</p>
+            <p>ID {key}</p>
       </div>
-    );
-};
+    )
+}
   
-  export default MyEvent;
+export default Comment;
   

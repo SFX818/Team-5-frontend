@@ -17,11 +17,11 @@ useEffect(() => {
       })
   }, [])
 
-console.log(savedEvents)
+//console.log(savedEvents)
 
   const display = () => (
    savedEvents.map((event, i) => {
-      console.log(event)
+      //console.log(event)
       return (
         <div class="col-6 col-md-4">
           <div class="card">

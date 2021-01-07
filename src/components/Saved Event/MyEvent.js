@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import authHeader from '../../utilities/authHeader.utilities'
 import axios from 'axios'
-import { resMessage } from '../../utilities/functions.utilities'
 import CommentsList from './CommentsList'
+import CommentForm from './CommentForm'
 
 const MyEvent = (params) => {
 
-    const [message, setMessage] = useState('')
     const [event, setEvent] = useState('')
+    const [comments, setComments]= useState([])
 
     const eventId=(params.match.params.id)
         
@@ -15,14 +15,21 @@ const MyEvent = (params) => {
             axios.get(`http://localhost:8080/events/comments/${eventId}`, { headers: authHeader() })
             .then(res=>{
                 setEvent(res.data)
+                setComments(res.data.comments)
             },
             (error) => {
                 return(error)
             }
         )},[])
-        // see the event-state where the api set data to
-        console.log(event.comments)
-       
+
+        const addComment = (newComment) =>{
+            console.log('new comment: '+newComment)
+            // e.preventDefault()
+            setComments([ newComment, ...comments])
+            
+          }
+        
+       //console.log(comments)
 
     return (
       <div className="container">
@@ -31,8 +38,12 @@ const MyEvent = (params) => {
         <p>eventId: {event.eventId}</p>
         <p>location: {event.location}</p>
         __v: {event._v}/_id: {event._id}
+        
         < CommentsList 
-            comments= {event.comments}
+            comments= {comments}
+        />
+        < CommentForm 
+            addComment = {addComment}
         />
         <form>
   <label>
