@@ -9,12 +9,12 @@ export const save = (eventId, name, date, location) => {
     
     // console.log(eventId, name, date, location)
     console.log('TRYING TO SAVE AND SEND TO BACKEND')
-    return axios.post(API_URL + 'profile/myevents/addevent', { header: authHeader() }, {
+    return axios.post(API_URL + 'profile/myevents/addevent', {
         eventId,
         name,
         date,
         location
-    })
+    }, { header: authHeader() })
 }
 
 

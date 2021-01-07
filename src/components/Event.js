@@ -20,7 +20,7 @@ const Event = (props) => {
             content._embedded.venues[0].name
         )
         console.log('TRYING TO SAVE')
-        history.push('/calendar')
+        // history.push('/calendar')
     }
 
     return (
