@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { getAllComments } from '../../services/event.service'
 import authHeader from '../../utilities/authHeader.utilities'
 import axios from 'axios'
-import ReactDOM from 'react-dom';
-
 import { resMessage } from '../../utilities/functions.utilities'
+import CommentsList from './CommentsList'
 
 const MyEvent = (params) => {
 
     const [message, setMessage] = useState('')
     const [event, setEvent] = useState('')
+
+    const eventId=(params.match.params.id)
         
         useEffect( ()=>{
-            axios.get(`http://localhost:8080/events/comments/5ff394c7d87802b5b25b5021`, { headers: authHeader() })
+            axios.get(`http://localhost:8080/events/comments/${eventId}`, { headers: authHeader() })
             .then(res=>{
                 setEvent(res.data)
             },
@@ -21,7 +21,7 @@ const MyEvent = (params) => {
             }
         )},[])
         // see the event-state where the api set data to
-        console.log(event)
+        console.log(event.comments)
        
 
     return (
@@ -31,6 +31,9 @@ const MyEvent = (params) => {
         <p>eventId: {event.eventId}</p>
         <p>location: {event.location}</p>
         __v: {event._v}/_id: {event._id}
+        < CommentsList 
+            comments= {event.comments}
+        />
         <form>
   <label>
     Comments:
