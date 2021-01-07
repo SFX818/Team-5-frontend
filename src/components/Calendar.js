@@ -32,7 +32,7 @@ useEffect(() => {
       })
   }, [])
 
-console.log(savedEvents)
+//console.log(savedEvents)
 
   const display = () => (
    savedEvents.map((event, i) => {
