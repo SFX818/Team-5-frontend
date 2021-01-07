@@ -26,18 +26,18 @@ export const seeEvent = (eventId, name, date, location) => {
 
 
 
-export const deleteEvent = (eventId, name, date, location) => {
-    return axios.delete(API_URL + 'profile/myevents/addevent', {
-        eventId,
-        name,
-        date,
-        location
-    }, {headers: authHeader()})
+export const deleteEvent = (eventId) => {
+    console.log(eventId)
+    axios.delete(API_URL + 'profile/myevents/'+ eventId, {
+        eventId: eventId 
+    }, {headers: authHeader()}).then ((res)=>{
+        return res
+    })
 }
 
 
-export const deleteComment = (name, content) => {
-    return axios.delete(API_URL + 'profile/myevents/addevent', {
+export const deleteComment = (name, content, id) => {
+    return axios.delete(API_URL + '/events/comment/' + id, {
         name,
         content
     }, {headers: authHeader()})
@@ -49,4 +49,10 @@ export const saveComment = (eId, cId, name, content) => {
         name: name,
         content: content
     }, {headers: authHeader()})
+}
+export const updateComment = ( name, content, commentId) => {
+    return axios.put(API_URL + '/events/updatedcomment/' + commentId, { // id is the id of the comment
+        name,
+        content
+    }, { header: authHeader() })
 }

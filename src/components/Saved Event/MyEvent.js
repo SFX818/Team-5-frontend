@@ -5,6 +5,7 @@ import CommentsList from './CommentsList'
 import CommentForm from './CommentForm'
 import {saveComment} from '../../services/event.service'
 
+
 const MyEvent = (params) => {
 
     const [event, setEvent] = useState('')
