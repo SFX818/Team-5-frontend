@@ -12,7 +12,7 @@ const UpdateComment = () => {
     const [savedComment, setSavedComment] = useState("")
     
     useEffect(() => {
-        axios.get("http://localhost:8080/events/comments/5ff737a3b5eaad3581e799d4", {headers: authHeader()}) 
+        axios.get("http://localhost:8080/events/comments/5ff7351db5eaad3581e799d2", {headers: authHeader()}) 
           .then((res) => {
               console.log(res.data)
             setSavedComment(res.data)
@@ -26,7 +26,7 @@ const UpdateComment = () => {
       console.log(comment)
   // axios call that edits the comment
   useEffect(() => {
-    axios.put("http://localhost:8080/events/comments/5ff737a3b5eaad3581e799d4", {headers: authHeader()}) 
+    axios.put("http://localhost:8080/events/comments/5ff7351db5eaad3581e799d2", {headers: authHeader()}) 
       .then((res) => {
           console.log(res.data)
         setComment(res.data)
