@@ -13,7 +13,7 @@ export const save = (eventId, name, date, location) => {
         eventId,
         name,
         date,
-        location
+        location, 
     }, { header: authHeader() })
 }
 
