@@ -11,6 +11,7 @@ const UpdateComment = () => {
 
     const [savedComment, setSavedComment] = useState("")
     
+    
     useEffect(() => {
         axios.get("http://localhost:8080/events/comments/5ff7351db5eaad3581e799d2", {headers: authHeader()}) 
           .then((res) => {
@@ -20,23 +21,17 @@ const UpdateComment = () => {
       }, [])
 
 
-//   const initialState = { name: '', content: '' }
-  const [comment, setComment] = useState("")
-
-      console.log(comment)
-  // axios call that edits the comment
-  useEffect(() => {
-    axios.put("http://localhost:8080/events/comments/5ff7351db5eaad3581e799d2", {headers: authHeader()}) 
-      .then((res) => {
-          console.log(res.data)
-        setComment(res.data)
-      })
-  }, [])
+  const [updatedComment, setUpdatedComment] = useState("")
  
   const handleSubmit = (e) => {
+    console.log(savedComment)
     e.preventDefault()
     updateComment(
-       // body of the comment goes here
+       {
+        //    name: name,
+        content: updatedComment,
+        // id: id
+    }
        
     )
 }
@@ -45,7 +40,7 @@ const UpdateComment = () => {
 // this function handles the update axios call and goes on the edit comment button on the comments component
 
   function handleUpdate(event) {
-    setComment({...comment, [event.target.name]: event.target.value})
+    setUpdatedComment({ [event.target.name]: event.target.value})
   }
 
 // function that lets you cancel if you don't want to edit comment
@@ -61,7 +56,7 @@ const UpdateComment = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Content</label>
-          <textarea name="content" rows="5" value={comment.content} onChange={handleUpdate} className="form-control" />
+          <textarea name="content" rows="5" value={savedComment.content} onChange={handleUpdate} className="form-control" />
         </div>
         <div className="btn-group">
           <button type="submit" className="btn btn-primary">Update</button>
