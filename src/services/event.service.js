@@ -45,6 +45,7 @@ export const deleteComment = (name, content) => {
 
 export const updateComment = (eventId, name, date, location) => {
     return axios.put(API_URL + '/events/updatedcomment/:id', {
-        // content
+        name,
+        content
     }, { header: authHeader() })
 }

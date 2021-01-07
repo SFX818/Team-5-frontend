@@ -6,32 +6,33 @@ import { updateComment } from '../services/event.service'
 
 const UpdateComment = () => {
 
+
+    //axios call the fetches the comment to be edited and prepopulates it on the form
+
+    const [savedComment, setSavedComment] = useState("")
+    
+    useEffect(() => {
+        axios.get("http://localhost:8080/events/comments/5ff737a3b5eaad3581e799d4", {headers: authHeader()}) 
+          .then((res) => {
+              console.log(res.data)
+            setSavedComment(res.data)
+          })
+      }, [])
+
+
 //   const initialState = { name: '', content: '' }
   const [comment, setComment] = useState("")
 
-
+      console.log(comment)
   // axios call that edits the comment
   useEffect(() => {
-    axios.put("http://localhost:8080/events/comments/5ff394c7d87802b5b25b5021", {headers: authHeader()}) 
+    axios.put("http://localhost:8080/events/comments/5ff737a3b5eaad3581e799d4", {headers: authHeader()}) 
       .then((res) => {
           console.log(res.data)
         setComment(res.data)
       })
   }, [])
  
-// axios call the fetches the comment to be edited and prepopulates it on the form
-
-const [savedComment, setSavedComment] = useState("")
-
-useEffect(() => {
-    axios.get("http://localhost:8080/events/comments/5ff394c7d87802b5b25b5021", {headers: authHeader()}) 
-      .then((res) => {
-          console.log(res.data)
-        setSavedComment(res.data)
-      })
-  }, [])
-
-
   const handleSubmit = (e) => {
     e.preventDefault()
     updateComment(
