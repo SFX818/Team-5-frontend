@@ -9,7 +9,6 @@ import { useHistory } from "react-router-dom";
 const Event = (props) => {
     let history = useHistory();
     const [content, setContent] = useState(props.location.state.data)
-    // console.log(content)
 
     const handleSave = (e) => {
         e.preventDefault()
