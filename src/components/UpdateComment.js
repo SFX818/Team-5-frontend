@@ -1,62 +1,70 @@
 import React, { useState, useEffect } from 'react';
 import  axios  from 'axios';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import authHeader from '../utilities/authHeader.utilities'
+import { updateComment } from '../services/event.service'
 
 const UpdateComment = () => {
 
-  const initialState = { name: '', content: '' }
-  const [comment, setComment] = useState(initialState)
 
-  useEffect(() => {
-    axios.put(`http://localhost:8080/events/comments/5ff394c7d87802b5b25b5021`, {headers: authHeader()}) 
-      .then((res) => {
-          console.log(res.data)
-        setComment(res.data)
-      })
-  }, [])
+    //axios call the fetches the comment to be edited and prepopulates it on the form
 
-//   function handleSubmit(event) {
-//     event.preventDefault();
-//     async function updateComment() {
-//       try {
-//         await patch("http://localhost:8080/events/comments/5ff394c7d87802b5b25b5021", commentt);
-//         props.history.push(`/articles/${article._id}`);        
-//       } catch(error) {
-//         console.log(error);
-//       }
-//     }
-//     updateArticle();
-//   }
+    const [savedComment, setSavedComment] = useState("")
+    
+    
+    useEffect(() => {
+        axios.get("http://localhost:8080/events/comments/5ff7351db5eaad3581e799d2", {headers: authHeader()}) 
+          .then((res) => {
+              console.log(res.data)
+            setSavedComment(res.data)
+          })
+      }, [])
 
-//   function handleChange(event) {
-//     setArticle({...article, [event.target.name]: event.target.value})
-//   }
+
+  const [updatedComment, setUpdatedComment] = useState("")
+ 
+  const handleSubmit = (e) => {
+    console.log(savedComment)
+    e.preventDefault()
+    updateComment(
+       {
+        //    name: name,
+        content: updatedComment,
+        // id: id
+    }
+       
+    )
+}
+
+
+// this function handles the update axios call and goes on the edit comment button on the comments component
+
+  function handleUpdate(event) {
+    setUpdatedComment({ [event.target.name]: event.target.value})
+  }
+
+// function that lets you cancel if you don't want to edit comment
 
 //   function handleCancel() {
-//     props.history.push(`/articles/${article._id}`);
+//     props.history.push("/comments/5ff394c7d87802b5b25b5021");
 //   }
 
-//   return (
-//     <div>
-//       <h1>Edit {article.title}</h1>
-//       <hr/>
-//       <form onSubmit={handleSubmit}>
-//         <div className="form-group">
-//           <label>Title</label>
-//           <input type="text" name="title" value={article.title} onChange={handleChange} className="form-control" />
-//         </div>
-//         <div className="form-group">
-//           <label>Content</label>
-//           <textarea name="content" rows="5" value={article.content} onChange={handleChange} className="form-control" />
-//         </div>
-//         <div className="btn-group">
-//           <button type="submit" className="btn btn-primary">Update</button>
-//           <button type="button" onClick={handleCancel} className="btn btn-secondary">Cancel</button>
-//         </div>
-//       </form>
-//     </div>
-//   );
+  return (
+    <div>
+      <h1>Edit Comment</h1>
+      <hr/>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Content</label>
+          <textarea name="content" rows="5" value={savedComment.content} onChange={handleUpdate} className="form-control" />
+        </div>
+        <div className="btn-group">
+          <button type="submit" className="btn btn-primary">Update</button>
+          <button type="button" onClick className="btn btn-secondary">handle Cancel goes here</button>
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default UpdateComment

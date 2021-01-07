@@ -21,23 +21,31 @@ export const seeEvent = (eventId, name, date, location) => {
 
 }
 
-
-// function to delete an Event
-export const deleteEvent = (eventId, name, date, location) => {
+export const deleteEvent = (eventId) => {
     console.log(eventId)
-    return axios.delete(API_URL + `profile/myevents/${eventId}`, {
-        eventId,
-        name,
-        date,
-        location
-    }, 
-    { headers: authHeader() })
+    axios.delete(API_URL + 'profile/myevents/'+ eventId, {
+        eventId: eventId 
+    }, {headers: authHeader()}).then ((res)=>{
+        return res
+    })
 }
-
-
-export const deleteComment = (name, content) => {
-    return axios.delete(API_URL + 'profile/myevents/addevent', {
+export const deleteComment = (name, content, id) => {
+    return axios.delete(API_URL + '/events/comment/' + id, {
         name,
         content
     }, { headers: authHeader() })
+}
+
+export const saveComment = (eId, cId, name, content) => {
+    return axios.post(`${API_URL}events/newcomment/${eId}`, {
+        _id: cId,
+        name: name,
+        content: content
+    }, {headers: authHeader()})
+}
+export const updateComment = ( name, content, commentId) => {
+    return axios.put(API_URL + '/events/updatedcomment/' + commentId, { // id is the id of the comment
+        name,
+        content
+    }, { header: authHeader() })
 }
