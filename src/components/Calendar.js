@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom'
 import authHeader from '../utilities/authHeader.utilities'
 import {deleteEvent} from "../services/event.service"
 
+
 // const API_URL = "http://localhost:8080/"
 function Calendar() {
+  
+  
 
 
 const [savedEvents, setSavedEvents] = useState([])
@@ -22,6 +25,7 @@ console.log(savedEvents)
 
   const display = () => (
    savedEvents.map((event, i) => {
+     
       console.log(event)
       return (
         <div class="col-6 col-md-4">
@@ -53,12 +57,15 @@ console.log(savedEvents)
     })
   )
   const deleteSavedEvent = (e) => {
+    
     console.log(e)
     let res= deleteEvent(e.target.parentNode.id)
-   console.log(res)
+    console.log(res)
+   
     
- 
-    }
+    
+    
+  }
 
 
   return (
