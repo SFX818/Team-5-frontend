@@ -44,10 +44,10 @@ useEffect(() => {
               </Link>
               <Link 
                 to={{
-                    pathname: `/event/comments/${event._id}`
-                  }}
+                  pathname: `/event/comments/${event._id}`
+                }}
               >
-                TEST: Go to Saved Event
+               Go to Event
               </Link>
                   <button onClick={deleteSavedEvent}>DELETE EVENT</button>
             </div>
