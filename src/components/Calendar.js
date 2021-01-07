@@ -1,30 +1,27 @@
-
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import  axios  from 'axios';
 import { Link } from 'react-router-dom'
 import authHeader from '../utilities/authHeader.utilities'
 
 // const API_URL = "http://localhost:8080/"
-
-
 function Calendar() {
 
 
-  const [savedEvents, setSavedEvents] = useState([])
+const [savedEvents, setSavedEvents] = useState([])
 
-  useEffect(() => {
-    axios.get("http://localhost:8080/profile/myevents", { headers: authHeader() })
+useEffect(() => {
+    axios.get("http://localhost:8080/profile/myevents", {headers: authHeader()}) 
       .then((res) => {
-        //   console.log(res.data)
+          console.log(res.data)
         setSavedEvents(res.data)
       })
   }, [])
 
-  // console.log(savedEvents)
+console.log(savedEvents)
 
   const display = () => (
-    savedEvents.map((event, i) => {
-      //   console.log(event)
+   savedEvents.map((event, i) => {
+      console.log(event)
       return (
         <div class="col-6 col-md-4">
           <div class="card">
@@ -47,25 +44,16 @@ function Calendar() {
     })
   )
 
-
-
-  const deleteSavedEvent = (id) => {
-
-    setSavedEvents(savedEvents.filter((savedEvent) => savedEvent.id !== id))
-  }
-
-
   return (
-    <div className="container">
-      <div className="row">
-        <h1>My Calendar with Events</h1>
-        <button onClick={deleteSavedEvent}>DELETE EVENT</button>
+    <div class="container">
+      <div class="row">
+        <h1>Your Events</h1>
         {display()}
       </div>
     </div>
   )
-
 }
 
-export default Calendar
 
+
+export default Calendar
