@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { getAllComments } from '../../services/event.service'
 import authHeader from '../../utilities/authHeader.utilities'
 import axios from 'axios'
-
 import { resMessage } from '../../utilities/functions.utilities'
+import CommentsList from './CommentsList'
 
 const MyEvent = (params) => {
 
@@ -22,7 +21,7 @@ const MyEvent = (params) => {
             }
         )},[])
         // see the event-state where the api set data to
-        //console.log(event)
+        console.log(event.comments)
        
 
     return (
@@ -32,7 +31,9 @@ const MyEvent = (params) => {
         <p>eventId: {event.eventId}</p>
         <p>location: {event.location}</p>
         __v: {event._v}/_id: {event._id}
-        
+        < CommentsList 
+            comments= {event.comments}
+        />
       </div>
     );
 };

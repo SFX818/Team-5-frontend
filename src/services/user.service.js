@@ -20,14 +20,14 @@ const getPublicContent = () => {
 const getUserBoard = () => {
     // include grabbing the header so that we can get their accessToken using the authHeader function in our helper
     // this will determine what they see based on the accessToken
-    return axios.get(API_URL + 'user', {header: authHeader()})
+    return axios.get(API_URL + 'user', {headers: authHeader()})
 }
 
 // access admin content
 const getAdminBoard = () => {
      // include grabbing the header so that we can get their accessToken using the authHeader function in our helper
      // this will determine what they see based on the accessToken
-    return axios.get(API_URL + 'admin', {header: authHeader()})
+    return axios.get(API_URL + 'admin', {headers: authHeader()})
 }
 
 //you can export all the functions at once using this object functionality
