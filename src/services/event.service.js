@@ -30,7 +30,7 @@ export const deleteEvent = (eventId) => {
     })
 }
 export const deleteComment = (name, content, id) => {
-    return axios.delete(API_URL + '/events/comment/' + id, {
+    return axios.delete(API_URL + 'events/comment/' + id, {
         name,
         content
     }, { headers: authHeader() })

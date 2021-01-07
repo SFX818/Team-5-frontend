@@ -39,15 +39,7 @@ const Layout = (props) => {
 
                     {currentUser ?
                         <div className='navbar-nav ml-auto'>
-                            <li className='nav-item'>
-                            <Link 
-                                to={{
-                                    pathname: '/event/comments/5ff394c7d87802b5b25b5021'
-                                }}
-                            >
-                                My Event Test
-                            </Link>
-                            </li>
+                            
                             
                             <li className='nav-item'>
                                 <Link to={'/profile'}>
