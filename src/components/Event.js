@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 const Event = (props) => {
     let history = useHistory();
     const [content, setContent] = useState(props.location.state.data)
-
+    console.log(content)
     const handleSave = (e) => {
         e.preventDefault()
         save(
@@ -31,16 +31,15 @@ const Event = (props) => {
                         <input hidden type="text" name="eventId" value={content.eventId} />
                         <input hidden type="text" name="name" value={content.name} />
                         <input hidden type="text" name="date" value={content.dates.start.localDate} />
-                        {/* <input hidden type="text" name="location" value={content._embedded.venues[0].state.name} /> */}
+                        <input hidden type="text" name="location" value={content._embedded.venues[0].name} />
                         <ButtonSpinner text="Add to Calendar" />
                     </form>
                     <p>{content.dates.start.localDate}</p>
                     <p>{content._embedded.venues[0].name}</p>
-                    {/* <p>{content._embedded.venues[0].city.name},{content._embedded.venues[0].state.name}</p> */}
+                    <p>{content._embedded.venues[0].city.name},{content._embedded.venues[0].country.name}</p>
                     <img src={content.images[0].url} alt="Main Event Promotion"></img>
                     <p>Genre: {content.classifications[0].genre.name}</p>
                     <p>{content.info}</p>
-                    <img src={content.seatmap.staticUrl} alt="Seat Map"></img>
                 </div>
             </div>
         </div>
