@@ -8,9 +8,7 @@ import Login from "./components/Login"
 import SignUp from "./components/SignUp"
 import Profile from "./components/Profile"
 import Event from "./components/Event"
-
 import Calendar from "./components/Calendar"
-
 import MyEvent from "./components/Saved Event/MyEvent"
 
 

@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { save } from '../services/event.service'
 import ButtonSpinner from './common/ButtonSpinner'
+import { useHistory } from "react-router-dom";
 
 // // Helper
 // import { resMessage } from '../utilities/functions.utilities'
 
 const Event = (props) => {
-
+    let history = useHistory();
     const [content, setContent] = useState(props.location.state.data)
-    console.log(content)
+    // console.log(content)
 
     const handleSave = (e) => {
         e.preventDefault()
@@ -18,6 +19,8 @@ const Event = (props) => {
             content.dates.start.localDate,
             content._embedded.venues[0].name
         )
+        console.log('TRYING TO SAVE')
+        history.push('/calendar')
     }
 
     return (
