@@ -1,12 +1,14 @@
 import axios from 'axios'
 import authHeader from '../utilities/authHeader.utilities'
 
+
 const API_URL = "http://localhost:8080/"
 
 // function to save a new Event
 export const save = (eventId, name, date, location) => {
+    
     // console.log(eventId, name, date, location)
-    // console.log('TRYING TO SAVE AND SEND TO BACKEND')
+    console.log('TRYING TO SAVE AND SEND TO BACKEND')
     return axios.post(API_URL + 'profile/myevents/addevent', {
         eventId,
         name,
@@ -36,7 +38,7 @@ export const deleteEvent = (eventId, name, date, location) => {
 
 export const deleteComment = (name, content) => {
     return axios.delete(API_URL + 'profile/myevents/addevent', {
-        name, 
+        name,
         content
     }, {headers: authHeader()})
 }

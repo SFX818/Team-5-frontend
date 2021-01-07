@@ -34,9 +34,22 @@ const MyEvent = (params) => {
         < CommentsList 
             comments= {event.comments}
         />
+        <form>
+  <label>
+    Comments:
+    <input type="text" name="name" />
+  </label>
+  <input type="submit" value="Submit" />
+</form>
+
+        <button onClick={MyEvent}>DELETE COMMENT</button>
+        
       </div>
     );
 };
+
+
+
+
   
   export default MyEvent;
-  
