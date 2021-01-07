@@ -6,17 +6,31 @@ import { updateComment } from '../services/event.service'
 
 const UpdateComment = () => {
 
-  const initialState = { name: '', content: '' }
-  const [comment, setComment] = useState(initialState)
+//   const initialState = { name: '', content: '' }
+  const [comment, setComment] = useState("")
 
+
+  // axios call that edits the comment
   useEffect(() => {
-    axios.put(`http://localhost:8080/events/comments/5ff394c7d87802b5b25b5021`, {headers: authHeader()}) 
+    axios.put("http://localhost:8080/events/comments/5ff394c7d87802b5b25b5021", {headers: authHeader()}) 
       .then((res) => {
           console.log(res.data)
         setComment(res.data)
       })
   }, [])
  
+// axios call the fetches the comment to be edited and prepopulates it on the form
+
+const [savedComment, setSavedComment] = useState("")
+
+useEffect(() => {
+    axios.get("http://localhost:8080/events/comments/5ff394c7d87802b5b25b5021", {headers: authHeader()}) 
+      .then((res) => {
+          console.log(res.data)
+        setSavedComment(res.data)
+      })
+  }, [])
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -27,14 +41,16 @@ const UpdateComment = () => {
 }
 
 
+// this function handles the update axios call and goes on the edit comment button on the comments component
 
-
-  function handleChange(event) {
+  function handleUpdate(event) {
     setComment({...comment, [event.target.name]: event.target.value})
   }
 
+// function that lets you cancel if you don't want to edit comment
+
 //   function handleCancel() {
-//     props.history.push(`/articles/${article._id}`);
+//     props.history.push("/comments/5ff394c7d87802b5b25b5021");
 //   }
 
   return (
@@ -43,12 +59,8 @@ const UpdateComment = () => {
       <hr/>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Title</label>
-          <input type="text" name="title" value={comment.content} onChange={handleChange} className="form-control" />
-        </div>
-        <div className="form-group">
           <label>Content</label>
-          <textarea name="content" rows="5" value={comment.content} onChange={handleChange} className="form-control" />
+          <textarea name="content" rows="5" value={comment.content} onChange={handleUpdate} className="form-control" />
         </div>
         <div className="btn-group">
           <button type="submit" className="btn btn-primary">Update</button>
