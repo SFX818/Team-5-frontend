@@ -22,7 +22,7 @@ const MyEvent = (params) => {
             (error) => {
                 return(error)
             }
-        )},[])
+        )},[eventId])
 
         const addToList = (newComment) =>{
             setComments([ newComment, ...comments])
@@ -45,13 +45,13 @@ const MyEvent = (params) => {
             saveComment = {saveComment}
             addToList = {addToList}
         />
-        <form>
+        {/* <form>
   <label>
     Comments:
     <input type="text" name="name" />
         </label>
         <input type="submit" value="Submit" />
-      </form>
+      </form> */}
 
       <button onClick={MyEvent}>DELETE COMMENT</button>
       {/* <form method="DELETE" onSubmit={handleDelete}>
