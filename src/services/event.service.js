@@ -30,7 +30,7 @@ export const deleteEvent = (eventId) => {
     })
 }
 export const deleteComment = (name, content, id) => {
-    return axios.delete(API_URL + '/events/comment/' + id, {
+    return axios.delete(API_URL + 'events/comment/' + id, {
         name,
         content
     }, { headers: authHeader() })
@@ -44,8 +44,8 @@ export const saveComment = (eId, cId, name, content) => {
     }, {headers: authHeader()})
 }
 export const updateComment = ( name, content, commentId) => {
-    return axios.put(API_URL + '/events/updatedcomment/' + commentId, { // id is the id of the comment
+    return axios.put(API_URL + 'events/updatedcomment/' + commentId, { // id is the id of the comment
         name,
         content
-    }, { header: authHeader() })
+    }, { headers: authHeader() })
 }
