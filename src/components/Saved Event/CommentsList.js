@@ -5,13 +5,19 @@ const CommentsList = ({comments}) => {
 
     return (
       <>
-      {comments.map(comment=>(
-          < Comment 
-            key= {comment._id}    
-            name= {comment.name} 
-            content= {comment.content}         
-          />
-      ))}
+      <div class="card">
+        <h5 class="card-header">Comments</h5>
+            <div class="card-body">
+            {comments.map(comment=>(
+            < Comment 
+                key= {comment._id}    
+                name= {comment.name} 
+                content= {comment.content}         
+            />
+            ))}
+            </div>
+        </div>
+      
         
       </>
     );

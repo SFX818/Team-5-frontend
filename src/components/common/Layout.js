@@ -26,9 +26,9 @@ const Layout = (props) => {
         <div>
             <nav className='navbar navbar-expand navbar-light bg-light'>
                 <div className="container-fluid">
-                    <Link to='/' className='navbar-brand'>
-                        FOMO NO-MO!
-                </Link>
+                    <Link to='/calendar' className='navbar-brand'>
+                        My Calendar
+                    </Link>
                     <div className='navbar-nav mr-auto'>
                         <li className='nav-item'>
                             <Link to={'/calendar'} className='nav-link'>
@@ -39,7 +39,10 @@ const Layout = (props) => {
 
                     {currentUser ?
                         <div className='navbar-nav ml-auto'>
+<<<<<<< HEAD
                             
+=======
+>>>>>>> 7bac99a5cd729ac6948892164f334a21319ed6aa
                             
                             <li className='nav-item'>
                                 <Link to={'/profile'}>
