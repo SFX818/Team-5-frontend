@@ -5,12 +5,11 @@ import authHeader from '../utilities/authHeader.utilities'
 import { updateComment } from '../services/event.service'
 
 const UpdateComment = (params) => {
-
-
+    console.log(params)
     //axios call the fetches the comment to be edited and prepopulates it on the form
-
     const [savedComment, setSavedComment] = useState("")
-    const eventId=(params.match.params.id)
+    const commentId=(params.match.params.id)
+    console.log(commentId)
     // we get comments at eventId
     useEffect(() => {
         axios.get(`http://localhost:8080/events/comments/${eventId}`, {headers: authHeader()}) 
