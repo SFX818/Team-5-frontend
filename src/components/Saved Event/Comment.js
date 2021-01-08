@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Comment = ({key, name, content,comment}) => {
-console.log(key)
+const Comment = ({key, name, content,comment, eventId}) => {
+console.log(eventId)
     return (
         <>
         <div className="card">
@@ -10,7 +10,7 @@ console.log(key)
                 <p className="card-text">{content}</p>
                 <Link
                     to={{
-                    pathname: `/event/comment/${comment._id}}`
+                    pathname: `/event/updatedcomment/${eventId}}`
                     }}
                 >
                   Edit

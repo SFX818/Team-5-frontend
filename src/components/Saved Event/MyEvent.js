@@ -44,6 +44,7 @@ const MyEvent = (params) => {
         <h6>Comments: </h6>
         < CommentsList 
             comments= {comments}
+            eventId= {eventId}
         />
         < CommentForm 
             eventId= {eventId}
