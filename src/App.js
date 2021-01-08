@@ -30,8 +30,7 @@ const App = () => {
         {/* <Route exact path="/profile/myevents/:id" component={CalendarEvent} />   */}
         <Route exact path="/event/comments/:id" component={MyEvent} />
         <Route exact path="/profile/newcomment" component={Event} />
-        <Route exact path="/event/comment/:id" component={Event} />
-        {/* // browswer kept hitting events/:id route instead of this route so I took out the s */}
+        <Route exact path="/events/:id" component={Event} />
         <Route exact path="/events/updatedcomment/:id" component={UpdateComment} />
       </Switch>
     </Layout>
