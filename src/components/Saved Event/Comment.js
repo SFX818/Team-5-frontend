@@ -1,28 +1,17 @@
 import React from 'react'
 
-const Comment = ({key, name, content}) => {
+const Comment = ({ key, name, content }) => {
 
-    return (
-      <div className="container">
-        <p>Event: {event.name} </p>
-        <p>date: {event.date} </p>
-        <p>eventId: {event.eventId}</p>
-        <p>location: {event.location}</p>
-        __v: {event._v}/_id: {event._id}
-
-        <Link 
-                to={{
-                  pathname: `/events/comment/${comment._id}`,
-                  state: { data }
-                }}
-                key={data.name}
-              >
-                More Information
-              </Link>
-        
+  return (
+    <>
+      <div className="card">
+        <h5 class="card-title">{name}</h5>
+        <p className="card-text">{content}</p>
+        <a href="#" className="btn btn-primary">Go somewhere</a>
+        <input type="hidden" value={key} />
       </div>
-    );
+    </>
+  );
 };
-  
+
 export default Comment;
-  
