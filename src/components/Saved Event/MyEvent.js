@@ -53,7 +53,7 @@ const MyEvent = (params) => {
         <input type="submit" value="Submit" />
       </form> */}
 
-      <button onClick={MyEvent}>DELETE COMMENT</button>
+      {/* <button onClick={MyEvent}>DELETE COMMENT</button> */}
       {/* <form method="DELETE" onSubmit={handleDelete}>
         <input hidden type="text" name="eventId" value={event.eventId} />
         <input hidden type="text" name="name" value={event.name} />
