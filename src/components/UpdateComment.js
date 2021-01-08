@@ -4,47 +4,40 @@ import  axios  from 'axios';
 import authHeader from '../utilities/authHeader.utilities'
 import { updateComment } from '../services/event.service'
 
-const UpdateComment = () => {
-
-
+const UpdateComment = (params) => {
+    console.log(params)
     //axios call the fetches the comment to be edited and prepopulates it on the form
-
     const [savedComment, setSavedComment] = useState("")
-    
-    
+    const commentId=(params.match.params.id)
+    console.log(commentId)
+    // we get comments at eventId
     useEffect(() => {
-        axios.get("http://localhost:8080/events/comments/5ff7351db5eaad3581e799d2", {headers: authHeader()}) 
+        axios.get(`http://localhost:8080/events/comments/${eventId}`, {headers: authHeader()}) 
           .then((res) => {
               console.log(res.data)
-            setSavedComment(res.data)
+            setSavedComment(res.data[0])
           })
       }, [])
-
+ console.log(savedComment)
 
   const [updatedComment, setUpdatedComment] = useState("")
+
+  console.log(updatedComment)
  
   const handleSubmit = (e) => {
-    console.log(savedComment)
     e.preventDefault()
     updateComment(
-       {
-        //    name: name,
-        content: updatedComment,
-        // id: id
-    }
-       
+            savedComment.name,
+            updatedComment.content,
+            savedComment._id
     )
 }
-
-
 // this function handles the update axios call and goes on the edit comment button on the comments component
-
   function handleUpdate(event) {
     setUpdatedComment({ [event.target.name]: event.target.value})
   }
 
 // function that lets you cancel if you don't want to edit comment
-
 //   function handleCancel() {
 //     props.history.push("/comments/5ff394c7d87802b5b25b5021");
 //   }
@@ -56,7 +49,7 @@ const UpdateComment = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Content</label>
-          <textarea name="content" rows="5" value={savedComment.content} onChange={handleUpdate} className="form-control" />
+          <textarea name="content" rows="5" value={updatedComment=== "" ? savedComment.content : updatedComment.content } onChange={handleUpdate} className="form-control" />
         </div>
         <div className="btn-group">
           <button type="submit" className="btn btn-primary">Update</button>
