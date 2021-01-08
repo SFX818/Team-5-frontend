@@ -27,7 +27,7 @@ const Layout = (props) => {
             <nav className='navbar navbar-expand navbar-light bg-light'>
                 <div className="container-fluid">
                     <Link to='/' className='navbar-brand'>
-                        FomoNomo
+                        FOMO-NOMO!
                     </Link>
                     <div className='navbar-nav mr-auto'>
                         <li className='nav-item'>
