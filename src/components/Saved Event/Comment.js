@@ -6,7 +6,7 @@ const Comment = ({key, name, content,comment, eventId}) => {
   return (
     <>
         <div className="row g-0">
-          <div className="col-3">
+          <div className="col-3M">
             <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" className="img-thumbnail mb-1" width="100%"/>
           </div>
           <div className="col-8">
