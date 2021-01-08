@@ -63,7 +63,7 @@ const MyEvent = (params) => {
         <input type="submit" value="Submit" />
       </form> */}
 
-            <button onClick={MyEvent}>DELETE COMMENT</button>
+            
 
         </div>
     );

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import shortid from 'shortid'
 
 
-const CommentForm = ({eventId, saveComment,addToList})=>{
+const CommentForm = ({eventId, saveComment,addToList, location})=>{
     const [newComment, setNewComment] = useState('')
     const [name, setName] = useState('')
     const [content, setContent] = useState('')
@@ -15,7 +15,7 @@ const CommentForm = ({eventId, saveComment,addToList})=>{
         
         
     //   }
-
+    console.log(location)
     const handleNameChange = (event) => {
         setName(event.target.value)
     }
@@ -54,6 +54,7 @@ const CommentForm = ({eventId, saveComment,addToList})=>{
             placeholder="Content goes here..."
         />
         <button onSubmit={handleSubmit}>Add Comment</button>
+        
         
 
 
