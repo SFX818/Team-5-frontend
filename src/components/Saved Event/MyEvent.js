@@ -12,19 +12,17 @@ const MyEvent = (params) => {
     let history = useHistory();
     const [event, setEvent] = useState('')
     const [comments, setComments] = useState([])
-
+    
     const eventId = (params.match.params.id)
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/events/comments/${eventId}`, { headers: authHeader() })
-            .then(res => {
-                setEvent(res.data)
-                setComments(res.data.comments)
-            },
-                (error) => {
-                    return (error)
-                }
-            )
+      axios.get(`http://localhost:8080/events/comments/${eventId}`, { headers: authHeader() })
+      .then(res => {
+        setEvent(res.data)
+        setComments(res.data.comments)
+      },(error) => {
+        return (error)
+      })
     }, [eventId])
 
     const addToList = (newComment) => {
@@ -37,43 +35,42 @@ const MyEvent = (params) => {
 
     }
 
-    return (
-        <div className="container">
-            <p>Event: {event.name} </p>
-            <p>date: {event.date} </p>
-            <p>eventId: {event.eventId}</p>
-            <p>location: {event.location}</p>
-        __v: {event._v}/_id: {event._id}
-        
-        <h6>Comments: </h6>
+  return (
+    <>
+      <header className="jumbotron card header border-info text-center mb-3">
+        <h2>
+          <strong>{event.name}</strong>
+        </h2>
+      </header>
+      <div className="card border-light bg-light mb-3">
+        <h3 className="card-subtitle mb-2 text-muted">Venue: {event.location}</h3>
+        <p className="card-text">{event.date}</p> 
+      
         < CommentsList 
             comments= {comments}
             eventId= {eventId}
         />
-        < CommentForm 
-            eventId= {eventId}
-            saveComment = {saveComment}
-            addToList = {addToList}
-        />
-        {/* <form>
-  <label>
-    Comments:
-    <input type="text" name="name" />
+        <div className="card-footer">
+          < CommentForm 
+          eventId= {eventId}
+          saveComment = {saveComment}
+          addToList = {addToList}
+          />
+          {/* moving this button to Comment.js
+          <button onClick={MyEvent}>DELETE COMMENT</button> */}
+        </div>
+      </div>
+
+      {/* <form>
+        <label>
+          Comments:
         </label>
+        <input type="text" name="name" />
         <input type="submit" value="Submit" />
       </form> */}
+    </>
+  )
+}
 
-            <button onClick={MyEvent}>DELETE COMMENT</button>
-
-        </div>
-    );
-
-
-
-
-
-
-
-};
 
 export default MyEvent;

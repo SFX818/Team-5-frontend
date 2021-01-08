@@ -34,9 +34,9 @@ function Calendar() {
       return (
         <div key={i} className="col-6 col-md-4">
           <div className="card">
-            {/* <img src={event.images[6].url} class="card-img-top" alt="Eagles Group"></img> */}
-            <div id={event._id} class="card-body">
-              <h5 class="card-title">{event.name}</h5>
+            {/* <img src={event.images[6].url} className="card-img-top" alt="Eagles Group"></img> */}
+            <div id={event._id} className="card-body">
+              <h5 className="card-title">{event.name}</h5>
               <Link
                 to={{
                   pathname: `/event/comments/${event._id}`
@@ -53,8 +53,8 @@ function Calendar() {
   )
 
   return (
-    <div class="container">
-      <div class="row">
+    <div className="container">
+      <div className="row">
         <h1>My Calendar with Events</h1>
         {display()}
       </div>
