@@ -33,16 +33,12 @@ const UpdateComment = (params) => {
             savedComment._id
     )
 }
-
-
 // this function handles the update axios call and goes on the edit comment button on the comments component
-
   function handleUpdate(event) {
     setUpdatedComment({ [event.target.name]: event.target.value})
   }
 
 // function that lets you cancel if you don't want to edit comment
-
 //   function handleCancel() {
 //     props.history.push("/comments/5ff394c7d87802b5b25b5021");
 //   }
