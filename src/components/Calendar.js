@@ -39,7 +39,7 @@ function Calendar() {
               <h5 class="card-title">{event.name}</h5>
               <Link
                 to={{
-                  pathname: `/event/${event._id}`
+                  pathname: `/event/comments/${event._id}`
                 }}
               >
                 More Information
