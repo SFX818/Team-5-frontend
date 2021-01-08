@@ -1,6 +1,6 @@
 import Comment from './Comment'
 
-const CommentsList = ({comments}) => {
+const CommentsList = ({comments, eventId}) => {
     return (
       <>
       <div class="card">
@@ -11,7 +11,8 @@ const CommentsList = ({comments}) => {
                 key= {comment._id}    
                 name= {comment.name} 
                 content= {comment.content} 
-                comment= {comment}        
+                comment= {comment}
+                eventId={eventId}        
             />
             ))}
             </div>

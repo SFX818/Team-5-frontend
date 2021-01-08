@@ -8,8 +8,8 @@ const UpdateComment = (params) => {
     console.log(params)
     //axios call the fetches the comment to be edited and prepopulates it on the form
     const [savedComment, setSavedComment] = useState("")
-    const commentId=(params.match.params.id)
-    console.log(commentId)
+    const eventId=(params.match.params.id)
+    console.log(eventId)
     // we get comments at eventId
     useEffect(() => {
         axios.get(`http://localhost:8080/events/comments/${eventId}`, {headers: authHeader()}) 

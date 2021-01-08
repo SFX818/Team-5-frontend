@@ -44,17 +44,18 @@ const MyEvent = (params) => {
             <p>eventId: {event.eventId}</p>
             <p>location: {event.location}</p>
         __v: {event._v}/_id: {event._id}
-
-            <h6>Comments: </h6>
-            < CommentsList
-                comments={comments}
-            />
-            < CommentForm
-                eventId={eventId}
-                saveComment={saveComment}
-                addToList={addToList}
-            />
-            {/* <form>
+        
+        <h6>Comments: </h6>
+        < CommentsList 
+            comments= {comments}
+            eventId= {eventId}
+        />
+        < CommentForm 
+            eventId= {eventId}
+            saveComment = {saveComment}
+            addToList = {addToList}
+        />
+        {/* <form>
   <label>
     Comments:
     <input type="text" name="name" />
