@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react'
 import Comment from './Comment'
 
 const CommentsList = ({comments, eventId}) => {
@@ -18,8 +17,6 @@ const CommentsList = ({comments, eventId}) => {
             ))}
             </div>
         </div>
-      
-        
       </>
     );
 };

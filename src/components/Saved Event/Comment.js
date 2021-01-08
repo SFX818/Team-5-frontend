@@ -10,17 +10,16 @@ console.log(eventId)
                 <p className="card-text">{content}</p>
                 <Link
                     to={{
-                    pathname: `/event/updatedcomment/${eventId}}`
+                    pathname: `/event/updatedcomment/${eventId}`
                     }}
                 >
                   Edit
                 </Link>
-                
-            <input type="hidden" value={key}/>
-        </div>
-        </>
-    )
+
+        <input type="hidden" value={key} />
+      </div>
+    </>
+  )
 }
-  
+
 export default Comment;
-  
