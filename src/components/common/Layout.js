@@ -5,11 +5,9 @@ import AuthService from '../../services/auth.service'
 const Layout = (props) => {
 
     const [currentUser, setCurrentUser] = useState(undefined)
-
     useEffect(() => {
         // grab getCurrentUser from the auth service
         const user = AuthService.getCurrentUser()
-
         if (user) {
             //setCurrentUser to the current user state
             setCurrentUser(user);
@@ -39,7 +37,6 @@ const Layout = (props) => {
 
                     {currentUser ?
                         <div className='navbar-nav ml-auto'>
-                            
                             <li className='nav-item'>
                                 <Link to={'/profile'}>
                                     {currentUser.username}'s Profile

@@ -73,8 +73,7 @@ const Login = (props) => {
             setLoading(false)
         }
     }
-
-    console.log(username, password)
+    
     return (
         <div className='col-md-12'>
             <div className='card card-container'>

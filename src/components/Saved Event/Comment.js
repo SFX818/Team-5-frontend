@@ -10,7 +10,7 @@ const Comment = ({key, name, content,comment, eventId}) => {
   
   const deleteCommentsList = () => {
     deleteComment (name, content, comment._id)
-    history.push('/calendar')
+    history.push(`/event/comments/${eventId}`)
     window.location.reload()
   }
   console.log(comment)
@@ -21,6 +21,7 @@ const Comment = ({key, name, content,comment, eventId}) => {
         <div className="col-3M">
           <img 
             src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" 
+            alt="Profile Avatar Placeholder"
             className="img-thumbnail mb-1" 
             width="100%"
             style={{maxWidth: "100px"}}

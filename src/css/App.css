@@ -130,6 +130,7 @@ label {
 
 .addCal-btn{
   margin-top: 150px;
+  margin-bottom: 50px;
   width: 60%;
   margin: 0 auto;
   color: rgb(5, 96, 126);
@@ -172,3 +173,40 @@ label {
   width: 300px;
 }
 
+.ticket{
+  margin-top: 150px;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+}
+
+.cal-card{
+  height: 225px;
+  text-align: center;
+  position: relative
+}
+
+.btn-cal, .link-btn{
+  background-color: rgb(91, 200, 236);
+  border-radius: 25px;
+  border: none;
+  width: 200px;
+  color: white;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+a.link:hover, .btn-cal:hover{ 
+  text-decoration: none; 
+  color: blue;
+} 
+
+a.link{
+  color: white;
+}
+
+.buttons{
+  position: absolute;
+  bottom: 20px;
+  right: 5px;
+}
