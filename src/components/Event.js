@@ -29,7 +29,11 @@ const Event = (props) => {
         <div className="col s6">
             <div id="all-info" className="card-panel teal lighten-2">
                 <div className="card-content white-text">
-                    <h2 className="card-title api-title">{content.name}</h2>
+                    <header className="jumbotron card header border-info text-center mb-3">
+                        <h2>
+                            <strong>{content.name}</strong>
+                        </h2>
+                    </header>
                     <hr className="event-line-break"></hr>
                     <div className="event-content">
                         <div className="column">
@@ -47,7 +51,8 @@ const Event = (props) => {
                                 <input hidden type="text" name="name" value={content.name} />
                                 <input hidden type="text" name="date" value={content.dates.start.localDate} />
                                 <input hidden type="text" name="location" value={content._embedded.venues[0].name} />
-                                <ButtonSpinner text="Add to Calendar" />
+                                <button className='btn btn-primary btn btn-info'>Add to Calendar</button>
+                                {/* <ButtonSpinner text="Add to Calendar" /> */}
                             </form>
                         </div>
                     </div>

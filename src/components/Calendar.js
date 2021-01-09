@@ -11,6 +11,7 @@ import { useHistory } from "react-router-dom";
 function Calendar() {
   let history = useHistory();
   const [savedEvents, setSavedEvents] = useState([])
+  
   const deleteSavedEvent = (e) => {
 
     console.log(e)

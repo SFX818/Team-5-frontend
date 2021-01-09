@@ -4,8 +4,8 @@ import axios from 'axios'
 import CommentsList from './CommentsList'
 import CommentForm from './CommentForm'
 import { saveComment } from '../../services/event.service'
-import ButtonSpinner from '../common/ButtonSpinner'
 import { useHistory } from "react-router-dom";
+import Moment from 'react-moment';
 
 
 const MyEvent = (params) => {
@@ -30,10 +30,11 @@ const MyEvent = (params) => {
         history.push(`/event/comments/${eventId}`)
         window.location.reload()
     }
+    const dateToFormat = event.date;
 
-    const handleDelete = () => {
+    // const handleDelete = () => {
 
-    }
+    // }
 
   return (
     <>
@@ -44,7 +45,7 @@ const MyEvent = (params) => {
       </header>
       <div className="card border-light bg-light mb-3">
         <h3 className="card-subtitle mb-2 text-muted">Venue: {event.location}</h3>
-        <p className="card-text">{event.date}</p> 
+        <p className="card-text">Date: <Moment format="MM/DD/YYYY">{dateToFormat}</Moment></p> 
       
         < CommentsList 
             comments= {comments}
