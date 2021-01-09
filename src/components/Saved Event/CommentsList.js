@@ -10,23 +10,23 @@ const CommentsList = ({comments, eventId}) => {
   
 
     return (
-      <>
-      <div class="card">
-        <h5 class="card-header">Comments</h5>
-            <div class="card-body">
-              
+      <ul className="list-group list-group-flush">
+      <div className="list-group-item list-group-item-info text-center">
+          <h5 >Comments</h5>
+      </div>
             {comments.map(comment=>(
-            < Comment 
+              <li className="list-group-item">
+              < Comment 
                 key= {comment._id}    
                 name= {comment.name} 
                 content= {comment.content} 
                 comment= {comment}
                 eventId={eventId}        
-            />
+              />
+            </li>
             ))}
-            </div>
-        </div>
-      </>
+      </ul>
+      
     );
 };
   

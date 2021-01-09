@@ -1,24 +1,18 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import shortid from 'shortid'
+import AuthService from '../../services/auth.service'
 
+const CommentForm = ({eventId, saveComment,addToList})=>{
 
-const CommentForm = ({eventId, saveComment,addToList, location})=>{
     const [newComment, setNewComment] = useState('')
     const [name, setName] = useState('')
     const [content, setContent] = useState('')
 
-    // const deleteComment = (e) => {
+    useEffect(() => {
+        const user = AuthService.getCurrentUser()
+        setName(user.username)
+    },[])
 
-    //     console.log(e)
-    //     let res = deleteComment(e)
-       
-        
-        
-    //   }
-    console.log(location)
-    const handleNameChange = (event) => {
-        setName(event.target.value)
-    }
     const handleContentChange = (event) => {
         setContent(event.target.value)
     }
@@ -35,32 +29,32 @@ const CommentForm = ({eventId, saveComment,addToList, location})=>{
         .then(()=>
         addToList(newComment))
     }
-    
-
 
 
     return (
-        <form onSubmit={handleSubmit}>
-        <input
-            name="formName"
-            value={name}
-            onChange={handleNameChange}
-            placeholder="New comment name"
-        />
-        <input
-            name="formContent"
-            value={content}
-            onChange={handleContentChange}
-            placeholder="Content goes here..."
-        />
-        <button onSubmit={handleSubmit}>Add Comment</button>
-        
-        
-
-
+        <form className="input-group" onSubmit={handleSubmit}>
+            <input
+                type="hidden"
+                name="formName"
+                value={name}
+            />
+            <div className="col-12 row mb-3">
+                <textarea
+                    name="formContent"
+                    type="text"
+                    className="form-control"
+                    value={content}
+                    onChange={handleContentChange}
+                    placeholder="Add a comment..."
+                ></textarea>
+            </div>
+            <div className="col-12 mb-3">
+                
+            <button className="btn btn-outline-info btn-sm" onSubmit={handleSubmit}>Add Comment</button>
+            </div>
         </form>
+        
     );
-    
 }
 
 export default CommentForm;
