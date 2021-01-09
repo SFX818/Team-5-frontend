@@ -1,5 +1,5 @@
  # FOMO-NOMO! 
-![](https://imgur.com/31XzPEV)
+![](src/css/images/home-page.png)
  ---
 
 ## How to Set Up:
