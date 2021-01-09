@@ -32,7 +32,6 @@ function Calendar() {
             <div id={event._id} className="card-body">
               <h5 className="card-title cal-title">{event.name}</h5>
                   <Link
-                    // className="link"
                     to={{
                       pathname: `/event/comments/${event._id}`
                     }}
