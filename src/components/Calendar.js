@@ -31,22 +31,18 @@ function Calendar() {
           <div className="card cal-card">
             <div id={event._id} className="card-body">
               <h5 className="card-title cal-title">{event.name}</h5>
-              <div className="buttons">
-                <button className="link-btn">
                   <Link
-                    className="link"
+                    // className="link"
                     to={{
                       pathname: `/event/comments/${event._id}`
                     }}
                   >
                     CHECK OUT MORE!
               </Link>
-                </button>
                 <button className="btn-cal" onClick={deleteSavedEvent}>DELETE EVENT</button>
               </div>
             </div>
           </div>
-        </div>
       )
     })
   )
