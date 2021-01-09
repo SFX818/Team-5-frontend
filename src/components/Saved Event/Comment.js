@@ -38,13 +38,17 @@ const Comment = ({key, name, content,comment, eventId}) => {
           to={{
           pathname: `/event/updatedcomment/${eventId}`
           }}
+          className="btn btn-link"
         >
-          <small>
-          Edit
+          <small >
+          EDIT
           </small>
         </Link>
-        |
-        <button onClick={deleteCommentsList}>DELETE COMMENT</button>
+        <button className="btn btn-link" onClick={deleteCommentsList}>
+        <small>
+          DELETE
+        </small>
+        </button>
         <input type="hidden" value={key} />
       </footer> 
     </>
