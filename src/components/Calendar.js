@@ -54,7 +54,8 @@ function Calendar() {
   return (
     <div class="container">
       <div class="row">
-        <h1>My Calendar with Events</h1>
+        <h1 className="calender-title">My Calendar of Events</h1>
+        <hr className="line-break"></hr>
         {display()}
       </div>
     </div>

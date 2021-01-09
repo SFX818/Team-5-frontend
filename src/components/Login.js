@@ -58,7 +58,7 @@ const Login = (props) => {
             AuthService.login(username, password)
                 .then(
                     () => {
-                        props.history.push("/profile")
+                        props.history.push("/")
                         window.location.reload()
                     },
                     //another way of formatting a .catch()

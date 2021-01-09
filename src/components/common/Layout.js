@@ -24,7 +24,7 @@ const Layout = (props) => {
 
     return (
         <div>
-            <nav className='navbar navbar-expand navbar-light bg-light'>
+            <nav className='navbar navbar-expand navbar-light'>
                 <div className="container-fluid">
                     <Link to='/' className='navbar-brand'>
                         FOMO-NOMO!
@@ -42,7 +42,7 @@ const Layout = (props) => {
                             
                             <li className='nav-item'>
                                 <Link to={'/profile'}>
-                                    {currentUser.username}
+                                    {currentUser.username}'s Profile
                                 </Link>
                                 <a href='/login' className='nav-item nav-link block' onClick={logOut}>Logout</a>
                             </li>
