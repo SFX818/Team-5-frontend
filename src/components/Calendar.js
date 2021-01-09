@@ -10,7 +10,6 @@ import { useHistory } from "react-router-dom";
 // const API_URL = "http://localhost:8080/"
 function Calendar() {
   let history = useHistory();
-
   const [savedEvents, setSavedEvents] = useState([])
   const deleteSavedEvent = (e) => {
 

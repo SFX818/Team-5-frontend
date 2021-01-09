@@ -45,6 +45,7 @@ const UpdateComment = (params) => {
   return (
     <div>
       <h1>Edit Comment</h1>
+      
       <hr/>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
