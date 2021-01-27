@@ -8,8 +8,8 @@
 ```
 npm i
 ```
-## [Link to Deployed App](fomo-nomo-frontend.surge.sh)
-## [Link to Backend Repo](https://github.com/SFX818/Team-5-backend)
+Link to Deployed App: fomo-nomo-frontend.surge.sh <br>
+Link to Backend Repo: https://github.com/SFX818/Team-5-backend
 
 ---
 
