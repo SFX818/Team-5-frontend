@@ -45,7 +45,7 @@ const Comment = ({key, name, content,comment, eventId}) => {
           </small>
         </Link>
         |
-        <button onClick={deleteCommentsList}>DELETE COMMENT</button>
+        <button className="btn btn-outline-info btn-sm" onClick={deleteCommentsList}>Delete Comment</button>
         <input type="hidden" value={key} />
       </footer> 
     </>
