@@ -49,8 +49,7 @@ export const saveComment = (eId, cId, name, content) => {
 
 // update comment in the event and comment database
 export const updateComment = (name, content, commentId, eventId) => {
-    // return axios.put(API_URL + 'events/updatedcomment/' + commentId, { // id is the id of the comment
-    return axios.put(API_URL + 'event/comments/' + eventId, { // id is the id of the comment
+    return axios.put(API_URL + 'event/comments/' + eventId, {
         name,
         content,
         commentId,

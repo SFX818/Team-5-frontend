@@ -1,6 +1,3 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import shortid from 'shortid'
 import { useHistory } from "react-router-dom";
 import { updateComment, deleteComment } from "../../services/event.service"
 
