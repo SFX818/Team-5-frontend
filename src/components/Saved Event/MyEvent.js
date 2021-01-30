@@ -23,7 +23,7 @@ const MyEvent = (params) => {
         return (error)
       })
     }, [eventId])
-
+    console.log(comments)
     const addToList = (newComment) => {
         setComments([newComment, ...comments])
         history.push(`/event/comments/${eventId}`)

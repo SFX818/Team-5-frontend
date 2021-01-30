@@ -49,8 +49,7 @@ const CommentForm = ({eventId, saveComment,addToList})=>{
                 ></textarea>
             </div>
             <div className="col-12 mb-3">
-                
-            <button className="btn btn-outline-info btn-sm" onSubmit={handleSubmit}>Add Comment</button>
+                <button className="btn btn-outline-info btn-sm" onSubmit={handleSubmit}>Add Comment</button>
             </div>
         </form>
         

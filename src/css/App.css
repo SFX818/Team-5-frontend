@@ -210,3 +210,22 @@ a.link{
   bottom: 20px;
   right: 5px;
 }
+
+.edit-comment{
+  margin-left: 115px;
+  width: 500px;
+  height: 150px;
+}
+
+#update{
+  position: absolute;
+  bottom: 15px;
+  left: 100px;
+}
+
+#delete{
+  position: absolute;
+  bottom: 5px;
+  left: 135px;
+  width: 134px;
+}
