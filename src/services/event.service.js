@@ -25,6 +25,7 @@ export const seeEvent = (eventId, name, date, location) => {
 
 }
 
+// delete events from the database
 export const deleteEvent = (eventId) => {
     console.log(eventId)
     axios.delete(API_URL + 'profile/myevents/'+ eventId, {
@@ -33,6 +34,8 @@ export const deleteEvent = (eventId) => {
         return res
     })
 }
+
+// delete comment from the event and comment database
 export const deleteComment = (name, content, id) => {
     return axios.delete(API_URL + 'events/comment/' + id, {
         name,
@@ -40,6 +43,8 @@ export const deleteComment = (name, content, id) => {
     }, { headers: authHeader() })
 }
 
+
+// save comment to the event and comment database
 export const saveComment = (eId, cId, name, content) => {
     return axios.post(`${API_URL}events/newcomment/${eId}`, {
         _id: cId,
@@ -47,9 +52,13 @@ export const saveComment = (eId, cId, name, content) => {
         content: content
     }, {headers: authHeader()})
 }
-export const updateComment = ( name, content, commentId) => {
-    return axios.put(API_URL + 'events/updatedcomment/' + commentId, { // id is the id of the comment
+
+// update comment in the event and comment database
+export const updateComment = (name, content, commentId, eventId) => {
+    return axios.put(API_URL + 'event/comments/' + eventId, {
         name,
-        content
+        content,
+        commentId,
+        eventId
     }, { headers: authHeader() })
 }

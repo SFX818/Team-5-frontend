@@ -14,7 +14,6 @@ const MyEvent = (params) => {
     let history = useHistory();
     const [event, setEvent] = useState('')
     const [comments, setComments] = useState([])
-    
     const eventId = (params.match.params.id)
 
     
@@ -30,18 +29,12 @@ const MyEvent = (params) => {
         return (error)
       })
     }, [eventId])
-
     const addToList = (newComment) => {
         setComments([newComment, ...comments])
         history.push(`/event/comments/${eventId}`)
         window.location.reload()
     }
     const dateToFormat = event.date;
-
-    // const handleDelete = () => {
-
-    // }
-
   return (
     <>
       <header className="jumbotron card header border-info text-center mb-3">
@@ -63,18 +56,8 @@ const MyEvent = (params) => {
           saveComment = {saveComment}
           addToList = {addToList}
           />
-          {/* moving this button to Comment.js
-          <button onClick={MyEvent}>DELETE COMMENT</button> */}
         </div>
       </div>
-
-      {/* <form>
-        <label>
-          Comments:
-        </label>
-        <input type="text" name="name" />
-        <input type="submit" value="Submit" />
-      </form> */}
     </>
   )
 }
