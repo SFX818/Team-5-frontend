@@ -1,7 +1,7 @@
 import axios from 'axios'
 import authHeader from '../utilities/authHeader.utilities'
 
-const API_URL = 'http://localhost:8080/api/test'
+const API_URL = 'https://thawing-tundra-73111.herokuapp.coms/api/test'
 
 // Methods	| Urls | Actions
 // -------- | ------- | --------

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import authHeader from '../utilities/authHeader.utilities'
 
-const API_URL = "http://localhost:8080/"
+const API_URL = "https://thawing-tundra-73111.herokuapp.com/"
 
 // function to save a new Event
 export const save = (eventId, name, date, location) => {

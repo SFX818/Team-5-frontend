@@ -15,7 +15,7 @@ const MyEvent = (params) => {
     const eventId = (params.match.params.id)
 
     useEffect(() => {
-      axios.get(`http://localhost:8080/events/comments/${eventId}`, { headers: authHeader() })
+      axios.get(`https://thawing-tundra-73111.herokuapp.com/events/comments/${eventId}`, { headers: authHeader() })
       .then(res => {
         setEvent(res.data)
         setComments(res.data.comments)

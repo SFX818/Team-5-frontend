@@ -18,7 +18,7 @@ function Calendar() {
   }
 
   useEffect(() => {
-    axios.get("http://localhost:8080/profile/myevents", { headers: authHeader() })
+    axios.get("https://thawing-tundra-73111.herokuapp.com/profile/myevents", { headers: authHeader() })
       .then((res) => {
         setSavedEvents(res.data)
       })

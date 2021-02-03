@@ -13,9 +13,11 @@ const Event = (props) => {
             content.name,
             content.dates.start.localDate,
             content._embedded.venues[0].name
-        )
+        ).then (res => {
+            console.log(res)
+        })
         history.push('/calendar')
-        window.location.reload()
+        // window.location.reload()
     }
     const dateToFormat = content.dates.start.localDate;
 
