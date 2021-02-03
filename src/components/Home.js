@@ -3,34 +3,40 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-
+require('dotenv').config();
 
 const Home = () => {
   const element = <FontAwesomeIcon icon={faSearch} />
   const [eventData, setEventData] = useState([])
   const [searchWord, setSearchWord] = useState("soccer")
-
+  require('dotenv').config();
+ 
   // Store the searched keyword in our searchWord state
   const onChangeSearch = (e) => {
     const search = e.target.value
     setSearchWord(search)
   }
 
+  var AXIOS_URL 
+  {process.env.NODE_ENV === 'development' ? AXIOS_URL=process.env.REACT_APP_DEV_URL_TICKETMASTER : AXIOS_URL=process.env.REACT_APP_PRO_URL_TICKETMASTER}
+  
   const HandleSearch = (e) => {
     e.preventDefault()
-    axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=0wQvZLMQGzPOHkz1uaAlvIfQ8NQt8ZDe&size=20&keyword=${searchWord}`)
-      .then((res) => {
-        // console.log(res.data._embedded.events)
-        setEventData(res.data._embedded.events)
-      })
+    axios.get(`${AXIOS_URL}=${searchWord}`)
+    //axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=0wQvZLMQGzPOHkz1uaAlvIfQ8NQt8ZDe&size=21&keyword=${searchWord}`)
+    .then((res) => {
+      // console.log(res.data._embedded.events)
+      setEventData(res.data._embedded.events)
+    })
   }
 
   useEffect(() => {
-    axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=0wQvZLMQGzPOHkz1uaAlvIfQ8NQt8ZDe&size=21&keyword=${searchWord}`)
+    axios.get(`${AXIOS_URL}=${searchWord}`)
+    //axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=0wQvZLMQGzPOHkz1uaAlvIfQ8NQt8ZDe&size=21&keyword=${searchWord}`)
       .then((res) => {
         setEventData(res.data._embedded.events)
       })
-  }, [])
+  }, [AXIOS_URL,searchWord])
 
   const display = () => (
     eventData.map((data, i) => {

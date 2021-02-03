@@ -1,7 +1,12 @@
 import axios from 'axios'
 import { setItem, getItem, removeItem } from '../utilities/localStorage.utilities'
+require('dotenv').config();
 
-const API_URL = "http://localhost:8080/api/auth/"
+//const API_URL = "http://localhost:8080/api/auth/"
+var API_URL
+{process.env.NODE_ENV === 'development' ? API_URL
+=process.env.REACT_APP_DEV_URL_AUTH : API_URL
+=process.env.REACT_APP_PRO_URL_AUTH}
 
 // function to register a new User
 const signup = (username, email, password) => {

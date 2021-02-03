@@ -1,8 +1,12 @@
 import axios from 'axios'
 import authHeader from '../utilities/authHeader.utilities'
+require('dotenv').config();
 
 
-const API_URL = "http://localhost:8080/"
+//const API_URL = "http://localhost:8080/"
+
+var API_URL 
+{process.env.NODE_ENV === 'development' ? API_URL=process.env.REACT_APP_DEV_URL_LOCAL_DB : API_URL=process.env.REACT_APP_PRO_PRO_HEROKU_DB}
 
 // function to save a new Event
 export const save = (eventId, name, date, location) => {
@@ -17,7 +21,7 @@ export const save = (eventId, name, date, location) => {
 
 // pull events from local database
 export const seeEvent = (eventId, name, date, location) => {
-    return axios.get(API_URL + 'profile/myevents/')
+    return axios.get(API_URL + 'profile/myevents/', {headers: authHeader()})
 
 }
 

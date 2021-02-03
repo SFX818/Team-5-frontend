@@ -6,6 +6,8 @@ import CommentForm from './CommentForm'
 import { saveComment } from '../../services/event.service'
 import { useHistory } from "react-router-dom";
 import Moment from 'react-moment';
+require('dotenv').config();
+
 
 
 const MyEvent = (params) => {
@@ -15,8 +17,12 @@ const MyEvent = (params) => {
     
     const eventId = (params.match.params.id)
 
+    
+
     useEffect(() => {
-      axios.get(`http://localhost:8080/events/comments/${eventId}`, { headers: authHeader() })
+      var API_URL 
+      {process.env.NODE_ENV === 'development' ? API_URL=process.env.REACT_APP_DEV_URL_LOCAL_DB : API_URL=process.env.REACT_APP_PRO_PRO_HEROKU_DB}
+      axios.get(`${API_URL}events/comments/${eventId}`, { headers: authHeader() })
       .then(res => {
         setEvent(res.data)
         setComments(res.data.comments)

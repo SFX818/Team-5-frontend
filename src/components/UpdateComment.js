@@ -3,6 +3,8 @@ import  axios  from 'axios';
 // import { Link } from 'react-router-dom'
 import authHeader from '../utilities/authHeader.utilities'
 import { updateComment } from '../services/event.service'
+require('dotenv').config();
+
 
 const UpdateComment = (params) => {
     //console.log(params)
@@ -12,12 +14,14 @@ const UpdateComment = (params) => {
     console.log(eventId)
     // we get comments at eventId
     useEffect(() => {
-        axios.get(`http://localhost:8080/getComment/${eventId}`, {headers: authHeader()}) 
+      var API_URL 
+      {process.env.NODE_ENV === 'development' ? API_URL=process.env.REACT_APP_DEV_URL_LOCAL_DB : API_URL=process.env.REACT_APP_PRO_PRO_HEROKU_DB}
+        axios.get(`${API_URL}getComment/${eventId}`, {headers: authHeader()}) 
           .then((res) => {
               console.log(res.data)
             setSavedComment(res.data[0])
           })
-      }, [])
+      }, [eventId])
  console.log(savedComment)
 
   const [updatedComment, setUpdatedComment] = useState("")

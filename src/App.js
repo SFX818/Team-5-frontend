@@ -30,7 +30,7 @@ const App = () => {
         <Route exact path="/event/comments/:id" component={MyEvent} />
         <Route exact path="/profile/newcomment" component={Event} />
         <Route exact path="/events/:id" component={Event} />
-        <Route exact path="/event/updatedcomment/:id" component={UpdateComment} />
+        {/* <Route exact path="/event/updatedcomment/:id" component={UpdateComment} /> */}
       </Switch>
     </Layout>
   );

@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom'
 import authHeader from '../utilities/authHeader.utilities'
 import { deleteEvent } from "../services/event.service"
 import { useHistory } from "react-router-dom";
-
+require('dotenv').config();
 
 
 // const API_URL = "http://localhost:8080/"
 function Calendar() {
+  var DB_URL 
+  {process.env.NODE_ENV === 'development' ? DB_URL=process.env.REACT_APP_DEV_URL_LOCAL_DB : DB_URL=process.env.REACT_APP_PRO_PRO_HEROKU_DB}
+
   let history = useHistory();
   const [savedEvents, setSavedEvents] = useState([])
   
@@ -20,17 +23,20 @@ function Calendar() {
     window.location.reload()
     console.log(res)
   }
+ //fomo-nomo-frontend.surge.sh/
 
   useEffect(() => {
-    axios.get("http://localhost:8080/profile/myevents", { headers: authHeader() })
+    axios.get(`${DB_URL}profile/myevents`, { headers: authHeader() })
       .then((res) => {
         setSavedEvents(res.data)
+        console.log(res.data)
       })
   }, [])
 
   const display = () => (
     savedEvents.map((event, i) => {
       console.log(event)
+      
       return (
         <div key={i} className="col-6 col-md-4">
           <div className="card">
